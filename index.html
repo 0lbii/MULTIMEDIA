@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía turística multimedia de Stávropol, Rusia. Descubre el Parque de la Victoria, el Monumento al Soldado, el Estanque Komsomol y la aldea de Kazninka.">
+    <title>Explora Stávropol - Guía Turística Multimedia</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<button id="btn-top" aria-label="Volver arriba" class="btn-top">
+    <svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 4l-8 8h5v8h6v-8h5z" fill="currentColor"/>
+    </svg>
+</button>
+
+<body>
+    <header>
+        <nav role="navigation" aria-label="Menú principal">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#lugares">Lugares Emblemáticos</a></li>
+                <li><a href="#multimedia">Galería</a></li>
+                <li><a href="#postal">Enviar Postal</a></li>
+                <li><a href="#faq">FAQs</a></li>
+                <li><a href="#accesibilidad">Accesibilidad</a></li>
+            </ul>
+        </nav>
+        <div class="hero" id="inicio">
+            <h1>Descubre Stávropol</h1>
+            <p>Donde el viento azota con fuerza pero los ciudadanos aguantan robustos como abedules, los niños sueñan y ríen sin cesar, donde caben miles de experiencias.</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="lugares" aria-labelledby="titulo-lugares">
+            <h2 id="titulo-lugares">Lugares Emblemáticos</h2>
+            <div class="grid-lugares">
+                <article class="lugar-card">
+                    <img src="https://avatars.mds.yandex.net/get-altay/4441655/2a00000181e90fe0a1ad7b9e879e5ecdfea2/orig" alt="Entrada principal al Parque de la Victoria en Stávropol con tanques y aviones históricos." loading="lazy">
+                    <h3>Парк Победы (Parque de la Victoria)</h3>
+                    <p>Uno de los parques más grandes y populares de la ciudad. Cuenta con monumentos históricos, áreas recreativas, atracciones, zoos, restaurantes, campos de fútbol e incluso con una zona de paintball.</p>
+                </article>
+
+                <article class="lugar-card">
+                    <img src="https://sun9-30.userapi.com/impf/Vyw6_SNvJbXuoUDBR_4ZI77a0RnPoDkDoNz8Dg/zte-dkxG8yA.jpg?size=807x605&quality=96&sign=0502b26e2573056b1d711244bc679ef6&c_uniq_tag=laopUUkvXQ-omhq1NjmGSzJRXaixfm9jntnhfTsWm1E&type=album" alt="Monumento al Soldado de la Guardia Roja en la Plaza del Soldado, Stávropol." loading="lazy">
+                    <h3>Памятник солдату (Monumento de un Soldado)</h3>
+                    <p>Situado en la Plaza del Soldado, este imponente monumento rinde homenaje a los defensores de la ciudad en la Segunda Guerra Mundial. Es un punto de referencia clave en el centro histórico de Stávropol.</p>
+                </article>
+
+                <article class="lugar-card">
+                    <img src="https://atvmedia.ru/uploads/news/202306/168579763117-thumb3.jpg" alt="Vista aérea del Estanque Komsomol recientemente renovado con playas de arena blanca." loading="lazy">
+                    <h3>Комсомольский пруд (Estanque Komsomol)</h3>
+                    <p>Recientemente renovado, este estanque ofrece playas de arena blanca, instalaciones deportivas modernas y es el lugar favorito de los jóvenes al ser un espacio abierto y gratuito, perfecto para desconectar. Puedes llegar paseando, en bici o en coche, y siempre está disponible.</p>
+                </article>
+
+                <article class="lugar-card">
+                    <img src="https://e-cis.info/upload/iblock/744/j2ztselgqsia9lxm9bmunu4j76kbs2uv.jpg" alt="Vista panorámica de la aldea de Kazninka y su entorno rural." loading="lazy">
+                    <h3>Статуя ангела (Estatua de un ángel)</h3>
+                    <p>Representa al ángel guardián de la ciudad, una figura que simboliza protección, esperanza y la idea de que la ciudad está “custodiada desde lo alto”. Rodeada de jardines y zonas de paseo, se ha convertido en un punto de encuentro para locales y visitantes.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="multimedia" aria-labelledby="titulo-multimedia">
+            <h2 id="titulo-multimedia">Tour Virtual por Stávropol</h2>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/FHJcxgTekJ8" title="Tour en video por Stávropol" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p class="sr-only">El video muestra vistas aéreas de Stávropol grabadas con un dron.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="postal" aria-labelledby="titulo-postal">
+            <h2 id="titulo-postal">Envía una Postal de Stávropol</h2>
+            <p>Elige una imagen y envía un saludo personalizado desde Rusia para tus amigos y familiares.</p>
+            <form id="form-postal" action="#" method="post">
+                <div class="form-group">
+                    <label for="nombre">Tu Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required aria-required="true">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email del destinatario:</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>Elige tu sello favorito:</legend>
+                        <div class="postal-options">
+                            <label>
+                                <input type="radio" name="imagen" value="park" required>
+                                <img src="https://www.shutterstock.com/image-photo/12212019-divnoe-stavropol-territory-russia-260nw-1603328593.jpg" alt="Miniatura Parque Victoria">
+                                <span>Actividad del Parque Victoria</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="imagen" value="soldat">
+                                <img src="https://mirfilately.ru/components/com_jshopping/files/img_products/4798_1.jpg" alt="Miniatura Monumento Soldado">
+                                <span>Aviación</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="imagen" value="pond">
+                                <img src="https://thumbs.dreamstime.com/b/divnoe-stavropol-territorio-ruso-sello-postal-ussr-feliz-a%C3%B1o-nuevo-la-torre-del-kremlin-spasskaya-y-el-palacio-de-los-congresos-163064262.jpg" alt="Miniatura Arquitectura">
+                                <span>Arquitectura</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="imagen" value="kazninka">
+                                <img src="https://avatars.mds.yandex.net/get-mpic/16497166/2a0000019cca94e8a441e89d6dcf31bf82f3/orig" alt="Miniatura Ciencia">
+                                <span>Ciencia</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required aria-required="true"></textarea>
+                    <button type="button" id="btn-voz" aria-label="Dictar mensaje por voz">🎤</button>
+                </div>
+
+                <button type="submit">Enviar Postal</button>
+            </form>
+            <div id="mensaje-exito" style="display:none;" role="alert">
+                ¡Tu postal ha sido enviada con éxito!
+            </div>
+        </section>
+
+        <section id="faq" aria-labelledby="titulo-faq">
+            <h2 id="titulo-faq">Preguntas Frecuentes</h2>
+
+            <details>
+                <summary>¿Dónde está ubicada Stávropol?</summary>
+                <p>En el suroeste de Rusia, en la región del Cáucaso Norte.</p>
+            </details>
+
+            <details>
+                <summary>¿Puedo visitar los lugares mostrados?</summary>
+                <p>Esta web es ficticia, pero los lugares existen y son turísticos.</p>
+            </details>
+
+            <details>
+                <summary>¿Cómo funciona el envío de postales?</summary>
+                <p>El envío es simulado para fines educativos.</p>
+            </details>
+        </section>
+
+        <section id="accesibilidad" aria-labelledby="titulo-accesibilidad">
+            <h2 id="titulo-accesibilidad">Opciones de Accesibilidad</h2>
+
+            <div class="accesibilidad-controles">
+                <h3>Lectura en voz alta</h3>
+                <button id="btn-tts" aria-label="Leer el contenido en voz alta">🎧 Escuchar página</button>
+                <button id="btn-tts-stop" aria-label="Detener lectura">⬛ Detener</button>
+            </div>
+
+            <div class="accesibilidad-controles">
+                <h3>Tamaño del texto</h3>
+                <button id="font-inc" aria-label="Aumentar tamaño de letra">A+</button>
+                <button id="font-dec" aria-label="Disminuir tamaño de letra">A-</button>
+            </div>
+
+            <div class="accesibilidad-controles">
+                <h3>Fuente del texto</h3>
+                <label for="font-select">Fuente:</label>
+                <select id="font-select">
+                    <option value="sans-serif">Sans Serif</option>
+                    <option value="serif">Serif</option>
+                    <option value="monospace">Monospace</option>
+                </select>
+            </div>
+
+            <div class="accesibilidad-controles">
+                <h3>Modo para daltónicos</h3>
+                <button id="btn-daltonicos" aria-label="Activar modo para daltónicos">🎨 Activar</button>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Práctica Multimedia P3 - Olga Chubinova Bortsova - URJC</p>
+            <div class="accessibility-badges">
+                <a href="https://www.w3.org/WAI/WCAG2AA-Conformance" title="Nivel de conformidad AA">
+                    <img height="32" width="88" src="https://www.w3.org/WAI/wcag2AA" alt="Icono de conformidad WCAG 2.2 Nivel AA">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
