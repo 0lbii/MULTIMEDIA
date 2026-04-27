@@ -1,11 +1,11 @@
 /* Estilos Base y Accesibilidad */
 :root {
-    --primary-color: #d97b2b;      /* naranja terracota */
-    --secondary-color: #f2c94c;    /* amarillo cálido */
-    --accent-color: #e67e22;       /* naranja intenso */
-    --text-color: #2c2c2c;         /* gris carbón */
-    --bg-color: #faf6ef;           /* beige claro */
-    --white: #ffffff;              /* blanco para tarjetas */
+    --primary-color: #d97b2b;
+    --secondary-color: #f2c94c; 
+    --accent-color: #e67e22;
+    --text-color: #2c2c2c;
+    --bg-color: #faf6ef;
+    --white: #ffffff;
 }
 
 * {
@@ -24,7 +24,7 @@ body {
 /* Navegación */
 nav {
     background: var(--primary-color);
-    color: var(--white);
+    color: #000;
     padding: 1rem;
     position: sticky;
     top: 0;
@@ -42,7 +42,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: var(--white);
+    color: #000;
     text-decoration: none;
     font-weight: bold;
     padding: 5px 10px;
@@ -51,7 +51,7 @@ nav ul li a {
 nav ul li a:focus, nav ul li a:hover {
     background-color: var(--secondary-color);
     border-radius: 4px;
-    outline: 2px solid var(--white);
+    outline: 2px solid #000;
 }
 
 /* Hero Section */
@@ -224,7 +224,7 @@ textarea {
 
 button[type="submit"] {
     background: var(--secondary-color);
-    color: var(--white);
+    color: #000;
     border: none;
     padding: 12px 25px;
     font-size: 1.1rem;
@@ -251,7 +251,7 @@ button[type="submit"]:hover {
 /* Footer */
 footer {
     background: var(--primary-color);
-    color: var(--white);
+    color: #000;
     padding: 30px 20px;
     text-align: center;
 }
@@ -336,12 +336,12 @@ footer {
 
 /* Modo daltónicos */
 .daltonicos {
-    --primary-color: #4a4a4a;     /* gris oscuro */
-    --secondary-color: #7a7a7a;   /* gris medio */
-    --accent-color: #b5b5b5;      /* gris claro */
-    --text-color: #1a1a1a;        /* casi negro */
-    --bg-color: #eaeaea;          /* gris muy claro */
-    --white: #ffffff;             /* tarjetas siguen blancas */
+    --primary-color: #4a4a4a;
+    --secondary-color: #7a7a7a;
+    --accent-color: #b5b5b5;
+    --text-color: #1a1a1a;
+    --bg-color: #eaeaea;
+    --white: #ffffff;
 }
 
 /* Responsive */
