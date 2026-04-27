@@ -223,7 +223,7 @@ textarea {
 }
 
 button[type="submit"] {
-    background: var(--secondary-color);
+    background: var(--primary-color);
     color: #000;
     border: none;
     padding: 12px 25px;
@@ -324,7 +324,7 @@ footer {
     position: absolute;
     right: 10px;
     bottom: 10px;
-    background: var(--secondary-color);
+    background: var(--primary-color);
     color: white;
     border: none;
     border-radius: 50%;
@@ -342,6 +342,20 @@ footer {
     --text-color: #1a1a1a;
     --bg-color: #eaeaea;
     --white: #ffffff;
+}
+
+/* Ajustes de contraste para modo daltónicos */
+.daltonicos nav,
+.daltonicos nav ul li a {
+    color: #ffffff !important;
+}
+
+.daltonicos footer {
+    color: #ffffff !important;
+}
+
+.daltonicos button[type="submit"] {
+    color: #ffffff !important;
 }
 
 /* Responsive */
