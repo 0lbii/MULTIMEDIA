@@ -287,6 +287,10 @@ footer {
     font-size: 1rem;
 }
 
+.accesibilidad-cursor {
+    margin-bottom: 1.5rem;
+}
+
 .btn-top {
     position: fixed;
     bottom: 20px;
@@ -324,7 +328,7 @@ footer {
     position: absolute;
     right: 10px;
     bottom: 10px;
-    background: var(--primary-color);
+    background: #fb8f3079;
     color: white;
     border: none;
     border-radius: 50%;
@@ -357,6 +361,226 @@ footer {
 .daltonicos button[type="submit"] {
     color: #ffffff !important;
 }
+
+/* Scroll Smooth*/
+html {
+    scroll-behavior: smooth;
+}
+
+/* Cursor */
+.cursor-1 {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='38' height='48' viewBox='0 0 24 24'><path fill='%23FFF' stroke='%23000' stroke-width='2' d='M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z'/></svg>") 0 0, auto;
+}
+
+.cursor-2 {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='60' viewBox='0 0 24 24'><path fill='%23FFF' stroke='%23000' stroke-width='2' d='M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z'/></svg>") 0 0, auto;
+}
+
+.cursor-3 {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='72' viewBox='0 0 24 24'><path fill='%23FFF' stroke='%23000' stroke-width='2' d='M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z'/></svg>") 0 0, auto;
+}
+
+.cursor-4 {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 24 24'><path fill='%23FFF' stroke='%23000' stroke-width='2' d='M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z'/></svg>") 0 0, auto;
+}
+
+.alojamiento-especial {
+    margin-top: 20px;
+    padding: 20px;
+    background: #fff7e6;
+    border-left: 5px solid orange;
+    border-radius: 8px;
+}
+
+.foto-familia {
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+#eventos {
+    margin-top: 40px;
+}
+
+.evento-app {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-eventos {
+    width: 80px;
+    border-radius: 12px;
+}
+
+.btn-descargar {
+    padding: 10px 20px;
+    background: #0078ff;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#comparador {
+    position: relative;
+    padding: 20px 0 !important;
+    background: var(--white);
+    z-index: 5; /* Asegura que esté por encima de fondos de otras secciones */
+}
+
+.modern-ba-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    cursor: ew-resize; /* Indica visualmente que se puede mover */
+    touch-action: none; /* Bloquea el scroll del móvil al tocar aquí */
+}
+
+.img-actual, .img-antigua {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; /* Evita que el ratón "agarre" la foto */
+}
+
+.modern-ba-container img {
+    pointer-events: none !important; 
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.img-reveal-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%; /* Posición inicial */
+    overflow: hidden;
+    z-index: 2;
+    border-right: 4px solid #fff;
+    pointer-events: none; /* IMPORTANTE: Deja que el evento pase al contenedor */
+}
+
+.divisoria-moderna {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: white;
+    z-index: 10;
+    transform: translateX(-50%);
+    cursor: ew-resize; /* AHORA SÍ */
+}
+
+.control-punto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 28px;
+    height: 28px;
+    background: white;
+    border: 3px solid black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: ew-resize;
+    z-index: 11;
+}
+
+
+#transporte {
+    margin-top: 40px;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+}
+
+.tour-360 iframe {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.slide {
+    min-width: 100%;
+    padding: 20px;
+    background: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#prev { left: -10px; }
+#next { right: -10px; }
+
+
+.cards-stack {
+    position: relative;
+    width: 100%;
+    height: 350px; /* Ajusta según el alto de tus capturas */
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    position: absolute;
+    width: 180px; /* Tamaño tipo móvil */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
+}
+
+/* Imagen central (la principal) */
+.card-2 {
+    z-index: 3;
+    transform: scale(1) translateX(0);
+}
+
+/* Imagen izquierda */
+.card-1 {
+    z-index: 2;
+    transform: scale(0.85) translateX(-120px) rotate(-5deg);
+    filter: brightness(0.8);
+}
+
+/* Imagen derecha */
+.card-3 {
+    z-index: 2;
+    transform: scale(0.85) translateX(120px) rotate(5deg);
+    filter: brightness(0.8);
+}
+
+/* Efecto Hover: Se expanden al pasar el ratón */
+.cards-stack:hover .card-1 { transform: scale(0.9) translateX(-160px) rotate(-10deg); }
+.cards-stack:hover .card-3 { transform: scale(0.9) translateX(160px) rotate(10deg); }
+.cards-stack:hover .card-2 { transform: scale(1.05); }
 
 /* Responsive */
 @media (max-width: 768px) {

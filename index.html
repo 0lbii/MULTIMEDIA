@@ -70,6 +70,90 @@
                     <p class="sr-only">El video muestra vistas aéreas de Stávropol grabadas con un dron.</p>
                 </div>
             </div>
+
+            <h2 id="titulo-tour3d">Visión 360 grados</h2>
+            <div class="tour-360">
+                <iframe 
+                    width="1106" 
+                    height="580" 
+                    frameborder="0" 
+                    allowfullscreen="true" 
+                    webkitallowfullscreen="true" 
+                    mozallowfullscreen="true" 
+                    src="https://truevirtualtours.com/panorama/45724/360view">
+                </iframe>
+            </div>
+
+            <div id="comparador">
+                <h2>Stávropol: Antes y Ahora</h2>
+                <div class="modern-ba-container">
+                    <img src="assets/images/vorota.png" class="img-actual" alt="Ahora">
+                    <div class="img-reveal-wrapper">
+                        <img src="assets/images/vorota-starie.jpg" class="img-antigua" alt="Antes">
+                    </div>
+                    <div class="divisoria-moderna">
+                        <div class="control-punto"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="eventos">
+            <h2>Eventos en Stávropol</h2>
+            <p>Consulta todos los eventos en la aplicación oficial <strong>MyStavropol</strong>.</p>
+
+            <div class="evento-app">
+                <img src="https://play-lh.googleusercontent.com/tqQX1QbJzYUTyabxZE69J88fnCMhE4uJC_G0S4Bbqlhsu_0HRumdHkXL0q1ND1a9_EE=w480-h960-rw" alt="Logo" class="logo-eventos">
+                <a class="btn-descargar" href="https://play.google.com/store/apps/details?id=com.secreate.myStavropol" target="_blank">Descargar aplicación</a>
+            </div>
+
+            <div class="cards-stack">
+                <img src="https://play-lh.googleusercontent.com/bai0SCPmygGIKR1DvS-tLxd2QON6J3BvKvdDdGRrnnSPqbxrxbvToupzNxT8fbzYAjk=w1052-h592-rw" alt="Captura 1" class="card card-1">
+                <img src="https://play-lh.googleusercontent.com/gzJMt0R_tbwMOtaNPmBEtDWNeyWK1GAJrMqYjdNTzF2Oaje6jPqHDbQfFqrItCqoni4=w1052-h592-rw" alt="Captura 2" class="card card-2">
+                <img src="https://play-lh.googleusercontent.com/vEhMC-0aqKe4ETkxQzHcLeKuEIVykGe9YTFecTiahXx0LvpGK9H9ocDPlw4dmqrkHoI=w1052-h592-rw" alt="Captura 3" class="card card-3">
+            </div>
+        </section>
+
+        <section id="alojamiento">
+            <h2>Dónde alojarse</h2>
+            <p>En Stávropol encontrarás hoteles para todos los gustos, desde opciones económicas hasta alojamientos con encanto.</p>
+
+            <article class="alojamiento-especial">
+                <h3>La casa de mi abuela (recomendación 100% real… o casi)</h3>
+                <p>Si quieres vivir la experiencia más auténtica de Stávropol, siempre puedes alojarte en casa de mi abuela. 
+                Ella te recibirá con los brazos abiertos… <strong>si traes un buen jamón ibérico y vino español</strong>.</p>
+
+                <img src="ruta/a/tu/foto-familiar.jpg" alt="Foto de mi familia en Stávropol" class="foto-familia">
+            </article>
+        </section>
+
+        <section id="transporte">
+            <h2>Cómo moverse por Stávropol</h2>
+
+            <div class="carousel">
+                <div class="slide">
+                    <h3>A pie</h3>
+                    <p>Perfecto para recorrer el centro histórico y disfrutar del ambiente local.</p>
+                </div>
+
+                <div class="slide">
+                    <h3>Autobús</h3>
+                    <p>La red de autobuses conecta todos los puntos importantes de la ciudad.</p>
+                </div>
+
+                <div class="slide">
+                    <h3>Taxis</h3>
+                    <p>Rápidos, económicos y disponibles en toda la ciudad. Si ves uno con forma de tanque… probablemente es Photoshop.</p>
+                </div>
+
+                <div class="slide">
+                    <h3>Bicicleta</h3>
+                    <p>Ideal para parques y zonas verdes. Muchas rutas son tranquilas y seguras.</p>
+                </div>
+            </div>
+
+            <button id="prev">‹</button>
+            <button id="next">›</button>
         </section>
 
         <section id="postal" aria-labelledby="titulo-postal">
@@ -151,19 +235,18 @@
 
             <div class="accesibilidad-controles">
                 <h3>Lectura en voz alta</h3>
-                <button id="btn-tts" aria-label="Leer el contenido en voz alta">🎧 Escuchar página</button>
-                <button id="btn-tts-stop" aria-label="Detener lectura">⬛ Detener</button>
+                <button id="btn-tts" aria-label="Leer el contenido en voz alta" title="Escuchar la página">🎧</button>
+                <button id="btn-tts-stop" aria-label="Detener lectura" title="Detener lectura">⬛</button>
             </div>
 
             <div class="accesibilidad-controles">
                 <h3>Tamaño del texto</h3>
-                <button id="font-inc" aria-label="Aumentar tamaño de letra">A+</button>
-                <button id="font-dec" aria-label="Disminuir tamaño de letra">A-</button>
+                <button id="font-inc" aria-label="Aumentar tamaño de letra" title="Aumentar tamaño de letra">A+</button>
+                <button id="font-dec" aria-label="Disminuir tamaño de letra" title="Disminuir tamaño de letra">A-</button>
             </div>
 
             <div class="accesibilidad-controles">
-                <h3>Fuente del texto</h3>
-                <label for="font-select">Fuente:</label>
+                <h3>Fuente de texto</h3>
                 <select id="font-select">
                     <option value="sans-serif">Sans Serif</option>
                     <option value="serif">Serif</option>
@@ -173,8 +256,21 @@
 
             <div class="accesibilidad-controles">
                 <h3>Modo para daltónicos</h3>
-                <button id="btn-daltonicos" aria-label="Activar modo para daltónicos">🎨 Activar</button>
+                <button id="btn-daltonicos" aria-label="Activar modo para daltónicos" title="Activar modo daltónico">🎨 Activar</button>
             </div>
+
+            <div class="accesibilidad-cursor">
+                <h3>Tamaño del cursor</h3>
+                <button id="cursor-mas" title="Aumentar tamaño del cursor">➕</button>
+                <button id="cursor-menos" title="Disminuir tamaño del cursor">➖</button>
+                <button id="cursor-reset" title="Restaurar tamaño del cursor">🔄</button>
+            </div>
+
+            <div class="accesibilidad-valores">
+                <h3>Restaurar valores predeterminados</h3>
+                <button id="btn-reset" aria-label="Restaurar valores predeterminados" title="Restaurar valores predeterminados">🔄 Restaurar</button>
+            </div>
+
         </section>
 
 
