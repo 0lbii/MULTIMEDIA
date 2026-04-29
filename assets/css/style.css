@@ -384,18 +384,22 @@ html {
     cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 24 24'><path fill='%23FFF' stroke='%23000' stroke-width='2' d='M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z'/></svg>") 0 0, auto;
 }
 
-.alojamiento-especial {
-    margin-top: 20px;
-    padding: 20px;
-    background: #fff7e6;
-    border-left: 5px solid orange;
-    border-radius: 8px;
+/* -- ALOJAMIENTO -- */
+.foto-wrap {
+    display: flex;
+    gap: 10px;          /* Espacio entre las fotos */
+    flex-wrap: wrap;    /* Si no caben en una línea, bajan a la siguiente */
+    justify-content: center; /* Centra las fotos si sobran espacios */
+    margin-top: 15px;
 }
 
+/* Ajustamos el tamaño de las fotos */
 .foto-familia {
-    margin-top: 15px;
-    width: 100%;
+    /* Calculamos el ancho para que quepan 4 (25% cada una menos el espacio) */
+    width: calc(25% - 10px); 
+    height: auto;       /* Mantiene la proporción */
     border-radius: 8px;
+    object-fit: cover;  /* Para que si tienen tamaños distintos, no se deformen */
 }
 
 #eventos {
@@ -426,11 +430,12 @@ html {
     font-weight: bold;
 }
 
+/* -- COMPARACION FOTO PASADO VS AHORA -- */
 #comparador {
     position: relative;
     padding: 20px 0 !important;
     background: var(--white);
-    z-index: 5; /* Asegura que esté por encima de fondos de otras secciones */
+    z-index: 5;
 }
 
 .modern-ba-container {
@@ -495,17 +500,6 @@ html {
     z-index: 11;
 }
 
-
-#transporte {
-    margin-top: 40px;
-    position: relative;
-}
-
-.carousel {
-    display: flex;
-    overflow: hidden;
-}
-
 .tour-360 iframe {
     max-width: 100%;
     height: auto;
@@ -514,76 +508,215 @@ html {
     margin-bottom: 30px;
 }
 
-.slide {
-    min-width: 100%;
-    padding: 20px;
-    background: #fafafa;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-#prev, #next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #333;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-#prev { left: -10px; }
-#next { right: -10px; }
-
-
+/* --- CARTAS EVENTOS --- */
 .cards-stack {
     position: relative;
     width: 100%;
-    height: 350px; /* Ajusta según el alto de tus capturas */
-    margin: 40px auto;
+    height: 500px; /* Aumentamos el alto del contenedor para que quepan */
+    margin: 50px auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: visible; 
 }
 
 .card {
     position: absolute;
-    width: 180px; /* Tamaño tipo móvil */
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 250px;  /* Antes 180px */
+    height: 400px; /* Antes 320px o automático */
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     cursor: pointer;
+    object-fit: cover;
 }
 
-/* Imagen central (la principal) */
-.card-2 {
-    z-index: 3;
-    transform: scale(1) translateX(0);
-}
-
-/* Imagen izquierda */
+/* Izquierda: alejamos más la carta para que no tape el centro */
 .card-1 {
-    z-index: 2;
-    transform: scale(0.85) translateX(-120px) rotate(-5deg);
-    filter: brightness(0.8);
+    z-index: 5;
+    transform: translateX(-200px) scale(0.8) rotate(-10deg); /* Antes -140px */
+    filter: brightness(0.7);
 }
 
-/* Imagen derecha */
+/* Centro */
+.card-2 {
+    z-index: 10;
+    transform: translateX(0) scale(1) rotate(0deg);
+    filter: brightness(1);
+}
+
+/* Derecha: alejamos más la carta */
 .card-3 {
-    z-index: 2;
-    transform: scale(0.85) translateX(120px) rotate(5deg);
-    filter: brightness(0.8);
+    z-index: 5;
+    transform: translateX(200px) scale(0.8) rotate(10deg); /* Antes 140px */
+    filter: brightness(0.7);
 }
 
-/* Efecto Hover: Se expanden al pasar el ratón */
-.cards-stack:hover .card-1 { transform: scale(0.9) translateX(-160px) rotate(-10deg); }
-.cards-stack:hover .card-3 { transform: scale(0.9) translateX(160px) rotate(10deg); }
-.cards-stack:hover .card-2 { transform: scale(1.05); }
+/* Ajuste del Hover para que se abran más */
+.cards-stack:hover .card-1 { transform: translateX(-250px) scale(0.85) rotate(-12deg); }
+.cards-stack:hover .card-3 { transform: translateX(250px) scale(0.85) rotate(12deg); }
+
+/* -- ALOJAMIENTO -- */
+.alojamiento-especial {
+    border: 2px dashed #e74c3c; /* Un borde divertido */
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #fffaf0; /* Un color cálido */
+    
+    /* 1. Transición suave para todo el contenedor */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer; /* Indica que interactúa */
+}
+
+/* 2. Efecto de "levitación" al pasar el ratón sobre el artículo */
+.alojamiento-especial:hover {
+    transform: translateY(-8px) scale(1.01); /* Se eleva y agranda un pelo */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15); /* Sombra difuminada */
+    border-style: solid; /* El borde cambia a sólido */
+}
+
+/* --- Estilos para la imagen dinámica --- */
+.foto-wrap {
+    overflow: hidden; /* Importante: oculta el desbordamiento de la imagen */
+    margin-top: 20px;
+    border-radius: 8px; /* Bordes suaves */
+}
+
+.foto-familia {
+    width: 20%; /* Se adapta a la anchura */
+    height: auto;
+    display: block;
+    
+    /* 3. Transición suave para la imagen por defecto */
+    transition: transform 0.6s ease-out;
+}
+
+/* 4. Efecto de zoom suave y lento al pasar el ratón sobre la imagen */
+.foto-familia:hover {
+    transform: scale(1.1); /* La imagen crece un 10% dentro de su marco */
+}
+
+/* -- FOTOS PARA LOS TRANPORTES -- */
+#transporte-moderno {
+    padding: 30px;
+    overflow: hidden; /* Evita scrolls raros */
+}
+
+.transporte-container {
+    display: flex;
+    width: 100%;
+    height: 500px;
+    gap: 12px;
+    /* Asegura que el contenedor sepa que es Flex */
+    justify-content: space-between; 
+}
+
+.panel {
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 100%;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* flex: 1 1 0; Significa: crece si hay espacio, encógete mucho, tamaño base 0 */
+    flex: 1 1 0; 
+    transition: all 0.7s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+/* Oscurecer la base para leer el texto */
+.panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.85));
+    z-index: 1;
+}
+
+.panel-content {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    right: 25px;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    /* Importante para que el texto no se amontone al expandir */
+    width: 80%; 
+    min-width: 200px;
+}
+
+.panel-content h3 {
+    font-size: 1.8rem;
+    color: var(--secondary-color, #f2c94c);
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.panel-content p {
+    font-size: 1rem;
+    color: #fff;
+}
+
+/* Aumentamos flex-grow de 1 a 6 para que ocupe la gran mayoría */
+.panel.active {
+    flex: 6 1 0;
+    width: auto;
+}
+
+.panel.active .panel-content {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s ease 0.3s;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
     .hero h1 { font-size: 2rem; }
     .postal-options { grid-template-columns: 1fr; }
+    .card {
+        width: 180px;
+        height: 300px;
+    }
+    .card-1 { transform: translateX(-100px) scale(0.8) rotate(-5deg); }
+    .card-3 { transform: translateX(100px) scale(0.8) rotate(5deg); }
+    
+    .cards-stack:hover .card-1 { transform: translateX(-120px) scale(0.85); }
+    .cards-stack:hover .card-3 { transform: translateX(120px) scale(0.85); }
+    .transporte-container {
+        flex-direction: column;
+        height: 100vh;
+    }
+    .panel {
+        flex: 1;
+    }
+    .panel.active {
+        flex: 5;
+    }
+    .foto-familia {
+        width: calc(50% - 10px); /* En móviles salen de 2 en 2 */
+    }
+    nav ul {
+        flex-direction: column; /* Ponemos los enlaces uno debajo de otro */
+        align-items: center;    /* Los centramos */
+        gap: 10px;              /* Espacio entre botones */
+    }
+
+    nav ul li {
+        margin: 5px 0;          /* Quitamos margen lateral y damos vertical */
+        width: 100%;            /* Que ocupen todo el ancho si quieres */
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;         /* Hace que todo el ancho sea clickable */
+        padding: 10px;          /* Más cómodo para tocar con el dedo */
+        background: rgba(255, 255, 255, 0.1); /* Un toque visual sutil */
+        border-radius: 8px;
+    }
 }

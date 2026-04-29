@@ -159,55 +159,36 @@ document.addEventListener('DOMContentLoaded', () => {
         aplicarCursor();
     });
 
-    const slider = document.querySelector('.ba-slider');
-    const handle = slider.querySelector('.handle');
-    const resize = slider.querySelector('.resize');
+    // Cartas rotativas de eventos
+    const stack = document.querySelector('.cards-stack');
+    const allCards = document.querySelectorAll('.card');
 
-    slider.addEventListener('mousemove', (e) => {
-        const rect = slider.getBoundingClientRect();
-        let x = e.clientX - rect.left;
-        if (x < 0) x = 0;
-        if (x > rect.width) x = rect.width;
-        handle.style.left = x + 'px';
-        resize.style.width = x + 'px';
-    });
-
-    const carousel = document.querySelector('.carousel');
-    let index = 0;
-
-    document.getElementById('next').onclick = () => {
-        index = (index + 1) % carousel.children.length;
-        carousel.style.transform = `translateX(-${index * 100}%)`;
-    };
-
-    document.getElementById('prev').onclick = () => {
-        index = (index - 1 + carousel.children.length) % carousel.children.length;
-        carousel.style.transform = `translateX(-${index * 100}%)`;
-    };
-
-    const cards = document.querySelectorAll('.card');
-
-    cards.forEach((card, index) => {
-        card.addEventListener('click', () => {
-            // Quitamos las clases actuales
-            cards.forEach(c => c.classList.remove('card-1', 'card-2', 'card-3'));
-            
-            // Lógica simple para rotar clases (puedes mejorarla según necesites)
-            if (index === 0) {
-                cards[0].classList.add('card-2');
-                cards[1].classList.add('card-3');
-                cards[2].classList.add('card-1');
-            } else if (index === 1) {
-                cards[0].classList.add('card-1');
-                cards[1].classList.add('card-2');
-                cards[2].classList.add('card-3');
-            } else {
-                cards[0].classList.add('card-3');
-                cards[1].classList.add('card-1');
-                cards[2].classList.add('card-2');
-            }
+    if (stack && allCards.length > 0) {
+        allCards.forEach((selectedCard) => {
+            selectedCard.addEventListener('click', function() {
+                // Si hacemos clic en la de la izquierda (card-1)
+                if (this.classList.contains('card-1')) {
+                    const c1 = document.querySelector('.card-1');
+                    const c2 = document.querySelector('.card-2');
+                    const c3 = document.querySelector('.card-3');
+                    
+                    c1.className = 'card card-2';
+                    c2.className = 'card card-3';
+                    c3.className = 'card card-1';
+                } 
+                // Si hacemos clic en la de la derecha (card-3)
+                else if (this.classList.contains('card-3')) {
+                    const c1 = document.querySelector('.card-1');
+                    const c2 = document.querySelector('.card-2');
+                    const c3 = document.querySelector('.card-3');
+                    
+                    c1.className = 'card card-3';
+                    c2.className = 'card card-1';
+                    c3.className = 'card card-2';
+                }
+            });
         });
-    });
+    }
 
     // Busca los elementos
     const container = document.querySelector('.modern-ba-container');
@@ -235,7 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (divider) divider.style.left = porcentaje + '%';
         };
 
-        // VARIABLE PARA SABER SI ESTAMOS PULSANDO
         let isDragging = false;
 
         // Empezar a mover
@@ -277,5 +257,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+    // TRANSPORTE
+    const contenedorTransporte = document.querySelector('.transporte-container');
+    
+    if (contenedorTransporte) {
+        // Usamos delegación de eventos en el contenedor padre
+        contenedorTransporte.addEventListener('click', function(e) {
+            // Buscamos el panel más cercano a donde se ha hecho click
+            const targetPanel = e.target.closest('.panel');
+            
+            // Si hemos clicado en un panel y ese panel no es ya el activo
+            if (targetPanel && !targetPanel.classList.contains('active')) {
+                // Quitamos active de todos los paneles DENTRO de este contenedor
+                const panelsInContainer = contenedorTransporte.querySelectorAll('.panel');
+                panelsInContainer.forEach(p => p.classList.remove('active'));
+                
+                // Añadimos active al clicado
+                targetPanel.classList.add('active');
+            }
+        });
+    }
 
 });
