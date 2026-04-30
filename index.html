@@ -103,7 +103,7 @@
             <p>Consulta todos los eventos en la aplicación oficial <strong>MyStavropol</strong>.</p>
 
             <div class="evento-app">
-                <img src="https://play-lh.googleusercontent.com/tqQX1QbJzYUTyabxZE69J88fnCMhE4uJC_G0S4Bbqlhsu_0HRumdHkXL0q1ND1a9_EE=w480-h960-rw" alt="Logo" class="logo-eventos">
+                <img src="https://play-lh.googleusercontent.com/tqQX1QbJzYUTyabxZE69J88fnCMhE4uJC_G0S4Bbqlhsu_0HRumdHkXL0q1ND1a9_EE=w480-h960-rw" alt="Logo" class="logo-eventos" title="logo-app">
                 <a class="btn-descargar" href="https://play.google.com/store/apps/details?id=com.secreate.myStavropol" target="_blank">Descargar aplicación</a>
             </div>
 
@@ -124,10 +124,10 @@
                 Ella te recibirá con los brazos abiertos… <strong>si traes un buen jamón ibérico y vino español</strong>.</p>
                 
                 <div class="foto-wrap">
-                    <img src="assets/images/babushka.png" alt="Foto de mi familia en Stávropol" class="foto-familia">
-                    <img src="assets/images/salon.png" alt="Foto de mi familia en Stávropol" class="foto-familia">
-                    <img src="assets/images/habitacion.png" alt="Foto de mi familia en Stávropol" class="foto-familia">
-                    <img src="assets/images/cocina.png" alt="Foto de mi familia en Stávropol" class="foto-familia">
+                    <img src="assets/images/babushka.png" alt="Foto de mi abuela en Stávropol" class="foto-familia">
+                    <img src="assets/images/salon.png" alt="Foto del salón de Stávropol" class="foto-familia">
+                    <img src="assets/images/habitacion.png" alt="Foto de una habitación en Stávropol" class="foto-familia">
+                    <img src="assets/images/cocina.png" alt="Foto de la cocina en Stávropol" class="foto-familia">
                 </div>
             </article>
         </section>
@@ -151,7 +151,7 @@
 
                 <div class="panel" style="background-image: url('assets/images/2gis.png')">
                     <div class="panel-content">
-                        <h3>Google Maps Ruso</h3>
+                        <h3>Google Maps Ruso (2GIS)</h3>
                         <p>Imprescindible para conocer todos los puntos relevantes de la ciudad.</p>
                     </div>
                 </div>
@@ -166,58 +166,73 @@
         </section>
 
         <section id="postal" aria-labelledby="titulo-postal">
-            <h2 id="titulo-postal">Envía una Postal de Stávropol</h2>
-            <p>Elige una imagen y envía un saludo personalizado desde Rusia para tus amigos y familiares.</p>
-            <form id="form-postal" action="#" method="post">
-                <div class="form-group">
-                    <label for="nombre">Tu Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required aria-required="true">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email del destinatario:</label>
-                    <input type="email" id="email" name="email" required aria-required="true">
-                </div>
-
-                <div class="form-group">
-                    <fieldset>
-                        <legend>Elige tu sello favorito:</legend>
-                        <div class="postal-options">
-                            <label>
-                                <input type="radio" name="imagen" value="park" required>
-                                <img src="https://www.shutterstock.com/image-photo/12212019-divnoe-stavropol-territory-russia-260nw-1603328593.jpg" alt="Miniatura Parque Victoria">
-                                <span>Actividad del Parque Victoria</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="imagen" value="soldat">
-                                <img src="https://mirfilately.ru/components/com_jshopping/files/img_products/4798_1.jpg" alt="Miniatura Monumento Soldado">
-                                <span>Aviación</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="imagen" value="pond">
-                                <img src="https://thumbs.dreamstime.com/b/divnoe-stavropol-territorio-ruso-sello-postal-ussr-feliz-a%C3%B1o-nuevo-la-torre-del-kremlin-spasskaya-y-el-palacio-de-los-congresos-163064262.jpg" alt="Miniatura Arquitectura">
-                                <span>Arquitectura</span>
-                            </label>
-                            <label>
-                                <input type="radio" name="imagen" value="kazninka">
-                                <img src="https://avatars.mds.yandex.net/get-mpic/16497166/2a0000019cca94e8a441e89d6dcf31bf82f3/orig" alt="Miniatura Ciencia">
-                                <span>Ciencia</span>
-                            </label>
-                        </div>
-                    </fieldset>
-                </div>
-
-                <div class="form-group">
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" required aria-required="true"></textarea>
-                    <button type="button" id="btn-voz" aria-label="Dictar mensaje por voz">🎤</button>
-                </div>
-
-                <button type="submit">Enviar Postal</button>
-            </form>
-            <div id="mensaje-exito" style="display:none;" role="alert">
-                ¡Tu postal ha sido enviada con éxito!
+            <div class="postal-header">
+                <h2 id="titulo-postal">Envía una Postal de Stávropol</h2>
+                <p>Un pedacito de Rusia, directamente a su bandeja de entrada.</p>
             </div>
+
+            <form id="form-postal" action="#" method="post">
+                <div class="form-row">
+                    <div class="form-group floating">
+                        <input type="text" id="nombre" name="nombre" placeholder=" " required>
+                        <label for="nombre">Tu Nombre</label>
+                    </div>
+                    
+                    <div class="form-group floating">
+                        <input type="email" id="email" name="email" placeholder=" " required>
+                        <label for="email">Email del destinatario</label>
+                    </div>
+                </div>
+
+                <fieldset class="postal-selector">
+                    <legend>Selecciona un diseño exclusivo</legend>
+                    <div class="postal-grid">
+                        <!-- Opción 1 -->
+                        <label class="postal-card">
+                            <input type="radio" name="imagen" value="park" required>
+                            <div class="card-content">
+                                <img src="https://www.shutterstock.com/image-photo/12212019-divnoe-stavropol-territory-russia-260nw-1603328593.jpg" alt="Parque Victoria">
+                                <span class="card-label">Parque Victoria</span>
+                            </div>
+                        </label>
+                        <!-- Repetir para el resto de opciones... -->
+                        <label class="postal-card">
+                            <input type="radio" name="imagen" value="soldat">
+                            <div class="card-content">
+                                <img src="https://mirfilately.ru/components/com_jshopping/files/img_products/4798_1.jpg" alt="Aviación">
+                                <span class="card-label">Aviación</span>
+                            </div>
+                        </label>
+                        <label class="postal-card">
+                            <input type="radio" name="imagen" value="pond">
+                            <div class="card-content">
+                                <img src="https://thumbs.dreamstime.com/b/divnoe-stavropol-territorio-ruso-sello-postal-ussr-feliz-a%C3%B1o-nuevo-la-torre-del-kremlin-spasskaya-y-el-palacio-de-los-congresos-163064262.jpg" alt="Arquitectura">
+                                <span class="card-label">Arquitectura</span>
+                            </div>
+                        </label>
+                        <label class="postal-card">
+                            <input type="radio" name="imagen" value="kazninka">
+                            <div class="card-content">
+                                <img src="https://avatars.mds.yandex.net/get-mpic/16497166/2a0000019cca94e8a441e89d6dcf31bf82f3/orig" alt="Ciencia">
+                                <span class="card-label">Ciencia</span>
+                            </div>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="form-group textarea-group">
+                    <label for="mensaje">Tu mensaje personal</label>
+                    <div class="textarea-wrapper">
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe algo bonito..." required></textarea>
+                        <button type="button" id="btn-voz" title="Dictar por voz">🎤</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <span>Enviar Postal</span>
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+            </form>
         </section>
 
         <section id="faq" aria-labelledby="titulo-faq">
@@ -256,7 +271,7 @@
 
             <div class="accesibilidad-controles">
                 <h3>Fuente de texto</h3>
-                <select id="font-select">
+                <select id="font-select" title="Fuente de texto">
                     <option value="sans-serif">Sans Serif</option>
                     <option value="serif">Serif</option>
                     <option value="monospace">Monospace</option>
