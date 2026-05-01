@@ -1,24 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('form-postal');
-    const mensajeExito = document.getElementById('mensaje-exito');
-
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Simulación de envío
-            const formData = new FormData(form);
-            console.log('Datos de la postal:', Object.fromEntries(formData));
-
-            // Feedback visual al usuario
-            form.style.display = 'none';
-            mensajeExito.style.display = 'block';
-            
-            // Scroll suave hacia el mensaje de éxito
-            mensajeExito.scrollIntoView({ behavior: 'smooth' });
-        });
-    }
-
     // Mejora de accesibilidad para los radio buttons de imágenes
     const labels = document.querySelectorAll('.postal-options label');
     labels.forEach(label => {
@@ -278,4 +258,48 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+});
+
+document.getElementById('form-postal').addEventListener('submit', function(event) {
+    const nombre = document.getElementById('nombre');
+    const email = document.getElementById('email');
+    const mensajeInput = document.getElementById('mensaje');
+    const errorSelloDiv = document.getElementById('error-sello-claro'); // El nuevo div
+    const mensajeExito = document.getElementById('mensaje-exito');
+    const btnSubmit = this.querySelector('.btn-submit');
+
+    // 1. Validar Nombre y Email (Burbujas normales en español)
+    if (!nombre.value.trim()) {
+        nombre.setCustomValidity("Escribe tu nombre");
+        nombre.reportValidity();
+        event.preventDefault();
+        return;
+    }
+    if (!email.validity.valid) {
+        email.setCustomValidity("Escribe un email válido");
+        email.reportValidity();
+        event.preventDefault();
+        return;
+    }
+
+    // 3. Validar Mensaje (Textarea)
+    if (mensajeInput.value.trim() === "") {
+        mensajeInput.setCustomValidity('¡Escribe un mensaje para la postal!');
+        mensajeInput.reportValidity();
+        event.preventDefault();
+        return;
+    }
+
+    // 4. TODO OK -> ENVÍO VISUAL
+    event.preventDefault(); 
+    btnSubmit.disabled = true;
+    btnSubmit.innerHTML = "<span>Enviando...</span>";
+
+    setTimeout(() => {
+        mensajeExito.style.display = 'block';
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = "<span>Enviar Postal</span>";
+        this.reset(); // Limpia todo
+        setTimeout(() => { mensajeExito.style.display = 'none'; }, 5000);
+    }, 1500);
 });

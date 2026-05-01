@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Guía turística multimedia de Stávropol, Rusia. Descubre el Parque de la Victoria, el Monumento al Soldado, el Estanque Komsomol y la aldea de Kazninka.">
     <title>Explora Stávropol - Guía Turística Multimedia</title>
+    <link rel="icon" type="image/png" href="assets/images/favico.png">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -115,7 +116,7 @@
             <p>Consulta todos los eventos en la aplicación oficial <strong>MyStavropol</strong>.</p>
 
             <div class="evento-app">
-                <img src="https://play-lh.googleusercontent.com/tqQX1QbJzYUTyabxZE69J88fnCMhE4uJC_G0S4Bbqlhsu_0HRumdHkXL0q1ND1a9_EE=w480-h960-rw" class="logo-eventos" title="Logo">
+                <img src="https://play-lh.googleusercontent.com/tqQX1QbJzYUTyabxZE69J88fnCMhE4uJC_G0S4Bbqlhsu_0HRumdHkXL0q1ND1a9_EE=w480-h960-rw" class="logo-eventos">
                 <a class="btn-descargar" href="https://play.google.com/store/apps/details?id=com.secreate.myStavropol" target="_blank">Descargar aplicación</a>
             </div>
 
@@ -187,12 +188,16 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="nombre">Nombre del remitente (obligatorio)</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Anastasia" required>
+                        <input type="text" id="nombre" name="nombre" placeholder="Anastasia" required
+                            oninvalid="this.setCustomValidity('Por favor, introduce tu nombre')"
+                            oninput="this.setCustomValidity('')">
                     </div>
                     
                     <div class="form-group">
                         <label for="email">Email del remitente (obligatorio)</label>
-                        <input type="email" id="email" name="email" placeholder="romanov@gmail.ru" required>
+                        <input type="email" id="email" name="email" placeholder="romanov@gmail.ru" required
+                            oninvalid="this.setCustomValidity('Introduce un email válido (ejemplo: usuario@dominio.com)')"
+                            oninput="this.setCustomValidity('')">
                     </div>
                 </div>
 
@@ -200,7 +205,7 @@
                     <legend>Selecciona un diseño exclusivo</legend>
                     <div class="postal-grid">
                         <label class="postal-card">
-                            <input type="radio" name="imagen" value="park" required>
+                            <input type="radio" name="imagen" value="park">
                             <div class="card-content">
                                 <img src="https://www.shutterstock.com/image-photo/12212019-divnoe-stavropol-territory-russia-260nw-1603328593.jpg" alt="Parque Victoria">
                                 <span class="card-label">Parque Victoria</span>
@@ -233,7 +238,7 @@
                 <div class="form-group textarea-group">
                     <label for="mensaje">Tu mensaje personal (obligatorio)</label>
                     <div class="textarea-wrapper">
-                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe algo bonito..." required></textarea>
+                        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe algo bonito..." required oninvalid="this.setCustomValidity('¡No olvides escribir tu mensaje!')" oninput="this.setCustomValidity('')"></textarea>
                         <button type="button" id="btn-voz" title="Dictar por voz">🎤</button>
                     </div>
                 </div>
@@ -242,6 +247,10 @@
                     <span>Enviar Postal</span>
                     <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                 </button>
+
+                <div id="mensaje-exito" style="display: none; color: #27ae60; background: #e8f5e9; padding: 15px; border-radius: 12px; margin-top: 20px; text-align: center; font-weight: bold; border: 1px solid #27ae60;">
+                    ✅ ¡Tu postal ha sido enviada con éxito!
+                </div>
             </form>
         </section>
 
@@ -265,48 +274,53 @@
         </section>
 
         <section id="accesibilidad" aria-labelledby="titulo-accesibilidad">
-            <h2 id="titulo-accesibilidad">Opciones de Accesibilidad</h2>
+            <h2 id="titulo-accesibilidad">Centro de Accesibilidad</h2>
 
-            <div class="accesibilidad-controles">
-                <h3>Lectura en voz alta</h3>
-                <button id="btn-tts" aria-label="Leer el contenido en voz alta" title="Escuchar la página">🎧</button>
-                <button id="btn-tts-stop" aria-label="Detener lectura" title="Detener lectura">⬛</button>
+            <div class="accesibilidad-grid">
+                <!-- Grupo 1: Audio -->
+                <div class="accesibilidad-card">
+                    <h3>Lectura en voz alta</h3>
+                    <div class="control-group">
+                        <button id="btn-tts" class="btn-icon" aria-label="Leer contenido" title="Escuchar"><span>🎧</span> Leer</button>
+                        <button id="btn-tts-stop" class="btn-icon btn-danger" aria-label="Detener" title="Detener"><span>⏹</span> Parar</button>
+                    </div>
+                </div>
+
+                <!-- Grupo 2: Texto -->
+                <div class="accesibilidad-card">
+                    <h3>Tamaño de texto</h3>
+                    <div class="control-group">
+                        <button id="font-inc" title="Aumentar">A+</button>
+                        <button id="font-dec" title="Disminuir">A-</button>
+                        <select id="font-select" aria-label="Seleccionar fuente">
+                            <option value="sans-serif">Sans Serif</option>
+                            <option value="serif">Serif</option>
+                            <option value="monospace">Monospace</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Grupo 3: Visual -->
+                <div class="accesibilidad-card">
+                    <h3>Modo Daltónicos</h3>
+                    <button id="btn-daltonicos" class="btn-toggle">🎨 Activar Modo Especial</button>
+                </div>
+
+                <!-- Grupo 4: Cursor -->
+                <div class="accesibilidad-card">
+                    <h3>Tamaño del cursor</h3>
+                    <div class="control-group">
+                        <button id="cursor-mas" title="Aumentar">➕</button>
+                        <button id="cursor-menos" title="Disminuir">➖</button>
+                        <button id="cursor-reset" title="Resetear">🔄</button>
+                    </div>
+                </div>
             </div>
 
-            <div class="accesibilidad-controles">
-                <h3>Tamaño del texto</h3>
-                <button id="font-inc" aria-label="Aumentar tamaño de letra" title="Aumentar tamaño de letra">A+</button>
-                <button id="font-dec" aria-label="Disminuir tamaño de letra" title="Disminuir tamaño de letra">A-</button>
+            <div class="accesibilidad-footer">
+                <button id="btn-reset" class="btn-reset-all">🔄 Restaurar valores de fábrica</button>
             </div>
-
-            <div class="accesibilidad-controles" title="Fuente de texto">
-                <h3>Fuente de texto</h3>
-                <select id="font-select" title="font-select">
-                    <option value="sans-serif" title="sans-serif">Sans Serif</option>
-                    <option value="serif" title="serif">Serif</option>
-                    <option value="monospace" title="monospace">Monospace</option>
-                </select>
-            </div>
-
-            <div class="accesibilidad-controles">
-                <h3>Modo para daltónicos</h3>
-                <button id="btn-daltonicos" aria-label="Activar modo para daltónicos" title="Activar modo daltónico">🎨 Activar</button>
-            </div>
-
-            <div class="accesibilidad-cursor">
-                <h3>Tamaño del cursor</h3>
-                <button id="cursor-mas" title="Aumentar tamaño del cursor">➕</button>
-                <button id="cursor-menos" title="Disminuir tamaño del cursor">➖</button>
-                <button id="cursor-reset" title="Restaurar tamaño del cursor">🔄</button>
-            </div>
-
-            <div class="accesibilidad-valores">
-                <h3>Restaurar valores predeterminados</h3>
-                <button id="btn-reset" aria-label="Restaurar valores predeterminados" title="Restaurar valores predeterminados">🔄 Restaurar</button>
-            </div>
-
         </section>
-
 
     </main>
 
