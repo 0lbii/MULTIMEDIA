@@ -69,6 +69,18 @@
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/FHJcxgTekJ8" title="Tour en video por Stávropol" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <p class="sr-only">El video muestra vistas aéreas de Stávropol grabadas con un dron.</p>
                 </div>
+                <details class="transcripcion-moderna">
+                    <summary>
+                        <span class="icon">💬</span>
+                        Ver transcripción del vídeo
+                        <svg class="arrow" viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="none" stroke="currentColor" stroke-width="2" d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </summary>
+                    <div class="content">
+                        <p>En este vídeo se muestran imágenes del centro de Stávropol, incluyendo la Puerta de Tiflis y el Ángel Guardián, acompañadas de música tradicional rusa.</p>
+                    </div>
+                </details>
             </div>
 
             <h2 id="titulo-tour3d">Visión 360 grados</h2>
@@ -103,7 +115,7 @@
             <p>Consulta todos los eventos en la aplicación oficial <strong>MyStavropol</strong>.</p>
 
             <div class="evento-app">
-                <img src="https://play-lh.googleusercontent.com/tqQX1QbJzYUTyabxZE69J88fnCMhE4uJC_G0S4Bbqlhsu_0HRumdHkXL0q1ND1a9_EE=w480-h960-rw" alt="Logo" class="logo-eventos" title="logo-app">
+                <img src="https://play-lh.googleusercontent.com/tqQX1QbJzYUTyabxZE69J88fnCMhE4uJC_G0S4Bbqlhsu_0HRumdHkXL0q1ND1a9_EE=w480-h960-rw" class="logo-eventos" title="Logo">
                 <a class="btn-descargar" href="https://play.google.com/store/apps/details?id=com.secreate.myStavropol" target="_blank">Descargar aplicación</a>
             </div>
 
@@ -166,28 +178,27 @@
         </section>
 
         <section id="postal" aria-labelledby="titulo-postal">
+            <h2>Envía una Postal de Stávropol</h2>
             <div class="postal-header">
-                <h2 id="titulo-postal">Envía una Postal de Stávropol</h2>
                 <p>Un pedacito de Rusia, directamente a su bandeja de entrada.</p>
             </div>
 
             <form id="form-postal" action="#" method="post">
                 <div class="form-row">
-                    <div class="form-group floating">
-                        <input type="text" id="nombre" name="nombre" placeholder=" " required>
-                        <label for="nombre">Tu Nombre</label>
+                    <div class="form-group">
+                        <label for="nombre">Nombre del remitente (obligatorio)</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Anastasia" required>
                     </div>
                     
-                    <div class="form-group floating">
-                        <input type="email" id="email" name="email" placeholder=" " required>
-                        <label for="email">Email del destinatario</label>
+                    <div class="form-group">
+                        <label for="email">Email del remitente (obligatorio)</label>
+                        <input type="email" id="email" name="email" placeholder="romanov@gmail.ru" required>
                     </div>
                 </div>
 
                 <fieldset class="postal-selector">
                     <legend>Selecciona un diseño exclusivo</legend>
                     <div class="postal-grid">
-                        <!-- Opción 1 -->
                         <label class="postal-card">
                             <input type="radio" name="imagen" value="park" required>
                             <div class="card-content">
@@ -195,7 +206,6 @@
                                 <span class="card-label">Parque Victoria</span>
                             </div>
                         </label>
-                        <!-- Repetir para el resto de opciones... -->
                         <label class="postal-card">
                             <input type="radio" name="imagen" value="soldat">
                             <div class="card-content">
@@ -221,7 +231,7 @@
                 </fieldset>
 
                 <div class="form-group textarea-group">
-                    <label for="mensaje">Tu mensaje personal</label>
+                    <label for="mensaje">Tu mensaje personal (obligatorio)</label>
                     <div class="textarea-wrapper">
                         <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe algo bonito..." required></textarea>
                         <button type="button" id="btn-voz" title="Dictar por voz">🎤</button>
@@ -269,12 +279,12 @@
                 <button id="font-dec" aria-label="Disminuir tamaño de letra" title="Disminuir tamaño de letra">A-</button>
             </div>
 
-            <div class="accesibilidad-controles">
+            <div class="accesibilidad-controles" title="Fuente de texto">
                 <h3>Fuente de texto</h3>
-                <select id="font-select" title="Fuente de texto">
-                    <option value="sans-serif">Sans Serif</option>
-                    <option value="serif">Serif</option>
-                    <option value="monospace">Monospace</option>
+                <select id="font-select" title="font-select">
+                    <option value="sans-serif" title="sans-serif">Sans Serif</option>
+                    <option value="serif" title="serif">Serif</option>
+                    <option value="monospace" title="monospace">Monospace</option>
                 </select>
             </div>
 

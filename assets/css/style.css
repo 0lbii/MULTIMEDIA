@@ -1,4 +1,4 @@
-/* Estilos Base y Accesibilidad */
+/* -- Estilos Base y Accesibilidad -- */
 :root {
     --primary-color: #d97b2b;
     --secondary-color: #f2c94c; 
@@ -21,7 +21,7 @@ body {
     background-color: var(--bg-color);
 }
 
-/* Navegación */
+/*-- Navegación -- */
 nav {
     background: var(--primary-color);
     color: #000;
@@ -54,7 +54,7 @@ nav ul li a:focus, nav ul li a:hover {
     outline: 2px solid #000;
 }
 
-/* Hero Section */
+/* -- Hero Section -- */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://avatars.dzeninfra.ru/get-zen_doc/3310860/pub_6246e26725d7973d05515314_6246e371b81a046c8507db42/scale_1200');
     background-size: cover;
@@ -74,7 +74,7 @@ nav ul li a:focus, nav ul li a:hover {
     margin-bottom: 10px;
 }
 
-/* Main Content */
+/* -- Main Content -- */
 main {
     max-width: 1200px;
     margin: 20px auto;
@@ -96,7 +96,7 @@ h2 {
     padding-bottom: 10px;
 }
 
-/* Grid de Lugares */
+/* -- Grid de Lugares -- */
 .grid-lugares {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -131,7 +131,7 @@ h2 {
     font-size: 0.95rem;
 }
 
-/* Multimedia */
+/* -- VIDEO -- */
 .video-container {
     margin-bottom: 30px;
 }
@@ -162,6 +162,75 @@ h2 {
     margin-top: 10px;
 }
 
+/* Contenedor principal */
+.transcripcion-moderna {
+    margin-top: 15px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.transcripcion-moderna:hover {
+    border-color: var(--primary-color, #d97b2b);
+    background: #fff;
+}
+
+/* El encabezado (Summary) */
+.transcripcion-moderna summary {
+    list-style: none; /* Quita la flecha por defecto en Chrome/Firefox */
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #495057;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+/* Quita la flecha por defecto en Safari */
+.transcripcion-moderna summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Icono y texto */
+.transcripcion-moderna .icon {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+/* Flecha personalizada */
+.transcripcion-moderna .arrow {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Rotación de flecha cuando está abierto */
+.transcripcion-moderna[open] .arrow {
+    transform: rotate(180deg);
+}
+
+.transcripcion-moderna[open] {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Contenido interno */
+.transcripcion-moderna .content {
+    padding: 0 16px 16px 42px; /* Alineado con el texto del summary */
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* -- FORMULARIO -- */
 /* Contenedor General */
 #postal {
@@ -185,43 +254,65 @@ h2 {
 }
 
 /* Inputs con Efecto Floating Label */
-.form-group.floating {
-    position: relative;
+/* Estilo general para todos los grupos del formulario */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.form-group.floating input {
-    width: 100%;
-    padding: 15px;
+/* Estilo para todos los labels (ahora todos saldrán arriba) */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+/* Aplicamos estilos comunes a ambos para que sean gemelos */
+.form-group input,
+.form-group textarea {
+    width: 100%; /* Ocupa el 100% de su contenedor padre */
+    box-sizing: border-box; /* Fundamental para que el padding no sume al ancho */
+    font-family: inherit; /* Hereda la fuente de la página (Arial, etc.) */
+    font-size: 1rem;
     border: 2px solid #eee;
     border-radius: 12px;
     outline: none;
-    transition: all 0.3s;
-    font-size: 1rem;
+    transition: border-color 0.3s;
+    background-color: #fff;
 }
 
-.form-group.floating label {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #fff;
-    padding: 0 5px;
-    color: #999;
-    pointer-events: none;
-    transition: all 0.3s;
+.form-group input {
+    padding: 12px 15px;
 }
 
-/* Animación del label al escribir */
-.form-group.floating input:focus,
-.form-group.floating input:not(:placeholder-shown) {
+.form-group textarea {
+    padding: 15px;
+    resize: none;
+    display: block; /* Evita espacios fantasma debajo del elemento */
+}
+
+/* Textarea y Botón Voz */
+.textarea-wrapper {
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* Efecto al hacer clic en el input */
+.form-group input:focus {
     border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(217, 123, 43, 0.1); /* Un resplandor sutil */
 }
 
-.form-group.floating input:focus + label,
-.form-group.floating input:not(:placeholder-shown) + label {
-    top: 0;
-    font-size: 0.8rem;
-    color: var(--primary-color);
+/* Ajuste específico para la fila doble en escritorio */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
 /* Grid de Postales Estilo Tarjeta */
@@ -276,20 +367,6 @@ h2 {
     background: #fff8f0;
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(217, 123, 43, 0.2);
-}
-
-/* Textarea y Botón Voz */
-.textarea-wrapper {
-    position: relative;
-    margin-top: 10px;
-}
-
-textarea {
-    width: 100%;
-    border: 2px solid #eee;
-    border-radius: 12px;
-    padding: 15px;
-    resize: none;
 }
 
 #btn-voz {
@@ -695,6 +772,7 @@ html {
 }
 
 .panel {
+    background-color: #1a1a1a;
     background-size: cover;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -722,6 +800,10 @@ html {
                 rgba(0,0,0,0.4) 40%, 
                 rgba(0,0,0,0.9) 100%);
     z-index: 1;
+}
+
+.panel:not(.active)::before {
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .panel-content {
