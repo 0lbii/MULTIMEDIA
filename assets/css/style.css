@@ -360,7 +360,7 @@ h2 {
 
 .postal-card input[type="radio"] {
     position: absolute;
-    opacity: 100;
+    opacity: 0;
     width: 10;
     height: 10;
 }
