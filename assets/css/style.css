@@ -1,4 +1,4 @@
-/* -- Estilos Base -- */
+/* -- ESTILOS BASE -- */
 :root {
     --primary-color: #d97b2b;
     --secondary-color: #f2c94c; 
@@ -27,7 +27,7 @@ body {
     outline-offset: 5px;
 }
 
-/* -- Clase para ocultar elementos visualmente pero mantenerlos para lectores de pantalla -- */
+/* -- ELEMENTOS DE LECTURA DE PÁGINA -- */
 .sr-only, .descripcion-accesible {
     position: absolute;
     width: 1px;
@@ -40,7 +40,7 @@ body {
     border-width: 0;
 }
 
-/*-- Navegación -- */
+/*-- NAVEGACIÓN -- */
 nav {
     background: var(--primary-color);
     color: #000;
@@ -73,7 +73,7 @@ nav ul li a:focus, nav ul li a:hover {
     outline: 2px solid #000;
 }
 
-/* -- Hero Section -- */
+/* -- HERO SECTION -- */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://avatars.dzeninfra.ru/get-zen_doc/3310860/pub_6246e26725d7973d05515314_6246e371b81a046c8507db42/scale_1200');
     background-size: cover;
@@ -107,7 +107,7 @@ nav ul li a:focus, nav ul li a:hover {
     backdrop-filter: blur(5px);
 }
 
-/* -- Main Content -- */
+/* -- MAIN CONTENT -- */
 main {
     max-width: 1200px;
     margin: 20px auto;
@@ -129,7 +129,7 @@ h2 {
     padding-bottom: 10px;
 }
 
-/* -- Grid de Lugares -- */
+/* -- GRID DE LUGARES -- */
 .grid-lugares {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -164,7 +164,7 @@ h2 {
     font-size: 0.95rem;
 }
 
-/* -- VIDEO -- */
+/* -- VIDEO YOUTUBE -- */
 .video-container {
     margin-bottom: 30px;
 }
@@ -195,7 +195,6 @@ h2 {
     margin-top: 10px;
 }
 
-/* Contenedor principal */
 .transcripcion-moderna {
     margin-top: 15px;
     background: #f8f9fa;
@@ -210,9 +209,8 @@ h2 {
     background: #fff;
 }
 
-/* El encabezado (Summary) */
 .transcripcion-moderna summary {
-    list-style: none; /* Quita la flecha por defecto en Chrome/Firefox */
+    list-style: none;
     display: flex;
     align-items: center;
     padding: 12px 16px;
@@ -224,25 +222,21 @@ h2 {
     position: relative;
 }
 
-/* Quita la flecha por defecto en Safari */
-.transcripcion-moderna summary::-webkit-details-marker {
+.transcripcion-moderna summary::-webkit-details-marker { /* Quita la flecha por defecto en Safari */
     display: none;
 }
 
-/* Icono y texto */
-.transcripcion-moderna .icon {
+.transcripcion-moderna .icon { /* Icono y texto */
     margin-right: 10px;
     font-size: 1.1rem;
 }
 
-/* Flecha personalizada */
-.transcripcion-moderna .arrow {
+.transcripcion-moderna .arrow { /* Flecha personalizada */
     margin-left: auto;
     transition: transform 0.3s ease;
 }
 
-/* Rotación de flecha cuando está abierto */
-.transcripcion-moderna[open] .arrow {
+.transcripcion-moderna[open] .arrow { /* Rotación de flecha cuando está abierto */
     transform: rotate(180deg);
 }
 
@@ -250,9 +244,8 @@ h2 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* Contenido interno */
-.transcripcion-moderna .content {
-    padding: 0 16px 16px 42px; /* Alineado con el texto del summary */
+.transcripcion-moderna .content { /* Contenido interno */
+    padding: 0 16px 16px 42px;
     color: #6c757d;
     font-size: 0.9rem;
     line-height: 1.5;
@@ -261,7 +254,7 @@ h2 {
 
 .transcripcion-moderna .content p {
     padding: 0 16px 16px 42px;
-    color: #333333; /* Gris muy oscuro, casi negro, para máximo contraste */
+    color: #333333;
     font-size: 0.95rem;
     line-height: 1.6;
     margin: 0;
@@ -273,8 +266,7 @@ h2 {
 }
 
 /* -- FORMULARIO -- */
-/* Contenedor General */
-#postal {
+#postal { /* Contenedor General */
     background: #fff;
     padding: 40px;
     border-radius: 24px;
@@ -286,7 +278,6 @@ h2 {
     margin-bottom: 40px;
 }
 
-/* Formulario en dos columnas para escritorio */
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -294,8 +285,6 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* Inputs con Efecto Floating Label */
-/* Estilo general para todos los grupos del formulario */
 .form-group {
     margin-bottom: 20px;
     display: flex;
@@ -303,7 +292,6 @@ h2 {
     align-items: flex-start;
 }
 
-/* Estilo para todos los labels (ahora todos saldrán arriba) */
 .form-group label {
     display: block;
     margin-bottom: 8px;
@@ -312,12 +300,11 @@ h2 {
     font-size: 0.95rem;
 }
 
-/* Aplicamos estilos comunes a ambos para que sean gemelos */
 .form-group input,
 .form-group textarea {
-    width: 100%; /* Ocupa el 100% de su contenedor padre */
-    box-sizing: border-box; /* Fundamental para que el padding no sume al ancho */
-    font-family: inherit; /* Hereda la fuente de la página (Arial, etc.) */
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
     font-size: 1rem;
     border: 2px solid #eee;
     border-radius: 12px;
@@ -333,30 +320,26 @@ h2 {
 .form-group textarea {
     padding: 15px;
     resize: none;
-    display: block; /* Evita espacios fantasma debajo del elemento */
+    display: block;
 }
 
-/* Textarea y Botón Voz */
 .textarea-wrapper {
     position: relative;
     margin-top: 10px;
     width: 100%;
 }
 
-/* Efecto al hacer clic en el input */
 .form-group input:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(217, 123, 43, 0.1); /* Un resplandor sutil */
+    box-shadow: 0 0 0 3px rgba(217, 123, 43, 0.1);
 }
 
-/* Ajuste específico para la fila doble en escritorio */
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-/* Grid de Postales Estilo Tarjeta */
 .postal-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -405,8 +388,7 @@ h2 {
     font-weight: bold;
 }
 
-/* Efecto de Selección */
-.postal-card input:checked + .card-content {
+.postal-card input:checked + .card-content { /* Efecto de Selección */
     border-color: var(--primary-color);
     background: #fff8f0;
     transform: scale(1.05);
@@ -428,7 +410,6 @@ h2 {
 
 #btn-voz:hover { transform: scale(1.1); }
 
-/* Botón Enviar Moderno */
 .btn-submit {
     display: flex;
     align-items: center;
@@ -480,11 +461,10 @@ footer {
 }
 
 /* -- ACCESIBILIDAD -- */
-/* Contenedor Principal */
 #accesibilidad {
     margin-top: 4rem;
     padding: 2.5rem;
-    background: #fdfdfd; /* Fondo casi blanco */
+    background: #fdfdfd;
     border-radius: 24px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     border: 1px solid #eee;
@@ -501,14 +481,12 @@ footer {
     margin-bottom: 5px;
 }
 
-/* Grid de Opciones */
 .accesibilidad-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
 
-/* Estilo de cada Tarjeta */
 .accesibilidad-card {
     background: #fff;
     padding: 20px;
@@ -530,7 +508,6 @@ footer {
     padding-left: 10px;
 }
 
-/* Controles dentro de las tarjetas */
 .control-group {
     display: flex;
     gap: 10px;
@@ -556,7 +533,6 @@ footer {
     color: var(--primary-color, #d97b2b);
 }
 
-/* Botones específicos */
 .btn-danger:hover {
     border-color: #e74c3c !important;
     color: #e74c3c !important;
@@ -574,7 +550,6 @@ footer {
     transform: scale(1.02);
 }
 
-/* Footer del panel */
 .accesibilidad-footer {
     margin-top: 30px;
     text-align: center;
@@ -589,7 +564,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Botón flotante Ir Arriba */
 .btn-top {
     position: fixed;
     bottom: 30px;
@@ -626,7 +600,6 @@ footer {
     cursor: pointer;
 }
 
-/* Modo daltónicos */
 .daltonicos {
     --primary-color: #4a4a4a;
     --secondary-color: #7a7a7a;
@@ -636,7 +609,6 @@ footer {
     --white: #ffffff;
 }
 
-/* Ajustes de contraste para modo daltónicos */
 .daltonicos nav,
 .daltonicos nav ul li a {
     color: #ffffff !important;
@@ -650,7 +622,6 @@ footer {
     color: #ffffff !important;
 }
 
-/* Scroll Smooth*/
 html {
     scroll-padding-top: 80px;
     scroll-behavior: smooth;
@@ -676,18 +647,17 @@ html {
 /* -- ALOJAMIENTO -- */
 .foto-wrap {
     display: flex;
-    gap: 10px;          /* Espacio entre las fotos */
-    flex-wrap: wrap;    /* Si no caben en una línea, bajan a la siguiente */
-    justify-content: center; /* Centra las fotos si sobran espacios */
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 15px;
 }
 
 .foto-familia {
-    /* Calculamos el ancho para que quepan 4 (25% cada una menos el espacio) */
     width: calc(25% - 10px); 
-    height: auto;       /* Mantiene la proporción */
+    height: auto;
     border-radius: 8px;
-    object-fit: cover;  /* Para que si tienen tamaños distintos, no se deformen */
+    object-fit: cover;
 }
 
 #eventos {
@@ -733,15 +703,15 @@ html {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    cursor: ew-resize; /* Indica visualmente que se puede mover */
-    touch-action: none; /* Bloquea el scroll del móvil al tocar aquí */
+    cursor: ew-resize;
+    touch-action: none;
 }
 
 .img-actual, .img-antigua {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    pointer-events: none; /* Evita que el ratón "agarre" la foto */
+    pointer-events: none;
 }
 
 .modern-ba-container img {
@@ -755,11 +725,11 @@ html {
     top: 0;
     left: 0;
     height: 100%;
-    width: 50%; /* Posición inicial */
+    width: 50%;
     overflow: hidden;
     z-index: 2;
     border-right: 4px solid #fff;
-    pointer-events: none; /* IMPORTANTE: Deja que el evento pase al contenedor */
+    pointer-events: none;
 }
 
 .divisoria-moderna {
@@ -771,7 +741,7 @@ html {
     background: white;
     z-index: 10;
     transform: translateX(-50%);
-    cursor: ew-resize; /* AHORA SÍ */
+    cursor: ew-resize;
 }
 
 .control-punto {
@@ -800,7 +770,7 @@ html {
 .cards-stack {
     position: relative;
     width: 100%;
-    height: 500px; /* Aumentamos el alto del contenedor para que quepan */
+    height: 500px;
     margin: 50px auto;
     display: flex;
     justify-content: center;
@@ -810,8 +780,8 @@ html {
 
 .card {
     position: absolute;
-    width: 250px;  /* Antes 180px */
-    height: 400px; /* Antes 320px o automático */
+    width: 250px;
+    height: 400px;
     border-radius: 20px;
     box-shadow: 0 15px 45px rgba(0,0,0,0.3);
     transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
@@ -819,75 +789,66 @@ html {
     object-fit: cover;
 }
 
-/* Izquierda: alejamos más la carta para que no tape el centro */
 .card-1 {
     z-index: 5;
-    transform: translateX(-200px) scale(0.8) rotate(-10deg); /* Antes -140px */
+    transform: translateX(-200px) scale(0.8) rotate(-10deg);
     filter: brightness(0.7);
 }
 
-/* Centro */
 .card-2 {
     z-index: 10;
     transform: translateX(0) scale(1) rotate(0deg);
     filter: brightness(1);
 }
 
-/* Derecha: alejamos más la carta */
 .card-3 {
     z-index: 5;
-    transform: translateX(200px) scale(0.8) rotate(10deg); /* Antes 140px */
+    transform: translateX(200px) scale(0.8) rotate(10deg);
     filter: brightness(0.7);
 }
 
-/* Ajuste del Hover para que se abran más */
 .cards-stack:hover .card-1 { transform: translateX(-250px) scale(0.85) rotate(-12deg); }
 .cards-stack:hover .card-3 { transform: translateX(250px) scale(0.85) rotate(12deg); }
 
 /* -- ALOJAMIENTO -- */
 .alojamiento-especial {
-    border: 2px dashed #e74c3c; /* Un borde divertido */
+    border: 2px dashed #e74c3c;
     padding: 20px;
     margin-top: 20px;
-    background-color: #fffaf0; /* Un color cálido */
+    background-color: #fffaf0;
     
-    /* 1. Transición suave para todo el contenedor */
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer; /* Indica que interactúa */
+    cursor: pointer;
 }
 
-/* 2. Efecto de "levitación" al pasar el ratón sobre el artículo */
 .alojamiento-especial:hover {
-    transform: translateY(-8px) scale(1.01); /* Se eleva y agranda un pelo */
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15); /* Sombra difuminada */
-    border-style: solid; /* El borde cambia a sólido */
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border-style: solid;
 }
 
-/* --- Estilos para la imagen dinámica --- */
 .foto-wrap {
-    overflow: hidden; /* Importante: oculta el desbordamiento de la imagen */
+    overflow: hidden;
     margin-top: 20px;
-    border-radius: 8px; /* Bordes suaves */
+    border-radius: 8px;
 }
 
 .foto-familia {
-    width: 20%; /* Se adapta a la anchura */
+    width: 20%;
     height: auto;
     display: block;
     
-    /* 3. Transición suave para la imagen por defecto */
     transition: transform 0.6s ease-out;
 }
 
-/* 4. Efecto de zoom suave y lento al pasar el ratón sobre la imagen */
 .foto-familia:hover {
-    transform: scale(1.1); /* La imagen crece un 10% dentro de su marco */
+    transform: scale(1.1);
 }
 
 /* -- FOTOS PARA LOS TRANPORTES -- */
 #transporte-moderno {
     padding: 30px;
-    overflow: hidden; /* Evita scrolls raros */
+    overflow: hidden;
 }
 
 .transporte-container {
@@ -895,7 +856,6 @@ html {
     width: 100%;
     height: 500px;
     gap: 12px;
-    /* Asegura que el contenedor sepa que es Flex */
     justify-content: space-between; 
 }
 
@@ -912,17 +872,14 @@ html {
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.1);
     
-    /* flex: 1 1 0; Significa: crece si hay espacio, encógete mucho, tamaño base 0 */
     flex: 1 1 0; 
     transition: all 0.7s cubic-bezier(0.05, 0.61, 0.41, 0.95);
 }
 
-/* Oscurecer la base para leer el texto */
 .panel::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    /* Degradado más sólido desde la mitad */
     background: linear-gradient(to bottom, 
                 rgba(0,0,0,0) 0%, 
                 rgba(0,0,0,0.4) 40%, 
@@ -943,29 +900,25 @@ html {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.4s ease;
-    /* Importante para que el texto no se amontone al expandir */
     width: 80%; 
     min-width: 200px;
 }
 
 .panel-content h3 {
     font-size: 1.8rem;
-    /* El amarillo original es claro, lo mantenemos pero aseguramos sombra */
     color: var(--secondary-color, #f2c94c); 
     margin-bottom: 8px;
-    /* Sombra de texto más definida para contraste */
     text-shadow: 2px 2px 8px rgba(0,0,0,1);
-    font-weight: 800; /* Más grosor ayuda a la legibilidad */
+    font-weight: 800;
 }
 
 .panel-content p {
-    font-size: 1.1rem; /* Un pelín más grande */
+    font-size: 1.1rem;
     color: #ffffff;
     text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
     font-weight: 400;
 }
 
-/* Aumentamos flex-grow de 1 a 6 para que ocupe la gran mayoría */
 .panel.active {
     flex: 6 1 0;
     width: auto;
@@ -1001,24 +954,24 @@ html {
         flex: 5;
     }
     .foto-familia {
-        width: calc(50% - 10px); /* En móviles salen de 2 en 2 */
+        width: calc(50% - 10px);
     }
     nav ul {
-        flex-direction: column; /* Ponemos los enlaces uno debajo de otro */
-        align-items: center;    /* Los centramos */
-        gap: 10px;              /* Espacio entre botones */
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 
     nav ul li {
-        margin: 5px 0;          /* Quitamos margen lateral y damos vertical */
-        width: 100%;            /* Que ocupen todo el ancho si quieres */
+        margin: 5px 0;          
+        width: 100%;            
         text-align: center;
     }
 
     nav ul li a {
-        display: block;         /* Hace que todo el ancho sea clickable */
-        padding: 10px;          /* Más cómodo para tocar con el dedo */
-        background: rgba(255, 255, 255, 0.1); /* Un toque visual sutil */
+        display: block;        
+        padding: 10px;         
+        background: rgba(255, 255, 255, 0.1);
         border-radius: 8px;
     }
     .form-row { grid-template-columns: 1fr; }

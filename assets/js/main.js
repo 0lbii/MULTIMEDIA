@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Mover con un solo Click
         container.addEventListener('click', processMove);
 
-        // SOPORTE MÓVIL (Touch)
+        // Soporte móvil (Touch)
         container.addEventListener('touchstart', () => isDragging = true);
         container.addEventListener('touchend', () => isDragging = false);
         container.addEventListener('touchmove', (e) => {
@@ -264,11 +264,11 @@ document.getElementById('form-postal').addEventListener('submit', function(event
     const nombre = document.getElementById('nombre');
     const email = document.getElementById('email');
     const mensajeInput = document.getElementById('mensaje');
-    const errorSelloDiv = document.getElementById('error-sello-claro'); // El nuevo div
+    const errorSelloDiv = document.getElementById('error-sello-claro');
     const mensajeExito = document.getElementById('mensaje-exito');
     const btnSubmit = this.querySelector('.btn-submit');
 
-    // 1. Validar Nombre y Email (Burbujas normales en español)
+    // 1. Validar Nombre y Email
     if (!nombre.value.trim()) {
         nombre.setCustomValidity("Escribe tu nombre");
         nombre.reportValidity();
@@ -282,7 +282,7 @@ document.getElementById('form-postal').addEventListener('submit', function(event
         return;
     }
 
-    // 3. Validar Mensaje (Textarea)
+    // 3. Validar Mensaje
     if (mensajeInput.value.trim() === "") {
         mensajeInput.setCustomValidity('¡Escribe un mensaje para la postal!');
         mensajeInput.reportValidity();
@@ -290,7 +290,7 @@ document.getElementById('form-postal').addEventListener('submit', function(event
         return;
     }
 
-    // 4. TODO OK -> ENVÍO VISUAL
+    // 4. Si todo está bien, hacer un envío simulado
     event.preventDefault(); 
     btnSubmit.disabled = true;
     btnSubmit.innerHTML = "<span>Enviando...</span>";
