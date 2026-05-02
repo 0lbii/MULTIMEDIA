@@ -21,6 +21,12 @@ body {
     background-color: var(--bg-color);
 }
 
+:focus-visible {
+    scroll-margin-top: 90px;
+    outline: 3px solid var(--primary-color, #d97b2b);
+    outline-offset: 5px;
+}
+
 /* -- Clase para ocultar elementos visualmente pero mantenerlos para lectores de pantalla -- */
 .sr-only, .descripcion-accesible {
     position: absolute;
@@ -646,6 +652,7 @@ footer {
 
 /* Scroll Smooth*/
 html {
+    scroll-padding-top: 80px;
     scroll-behavior: smooth;
 }
 
