@@ -7,6 +7,7 @@
     <title>Explora Stávropol - Guía Turística Multimedia</title>
     <link rel="icon" type="image/png" href="assets/images/favico.png">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <button id="btn-top" aria-label="Volver arriba" class="btn-top">
@@ -56,8 +57,8 @@
                 </article>
 
                 <article class="lugar-card">
-                    <img src="https://e-cis.info/upload/iblock/744/j2ztselgqsia9lxm9bmunu4j76kbs2uv.jpg" alt="Vista panorámica de la aldea de Kazninka y su entorno rural." loading="lazy">
-                    <h3>Статуя ангела (Estatua de un ángel)</h3>
+                    <img src="https://e-cis.info/upload/iblock/744/j2ztselgqsia9lxm9bmunu4j76kbs2uv.jpg" alt="Vista panorámica de la estatua del ángel y la plaza." loading="lazy">
+                    <h3>Статуя ангела (Estatua del ángel)</h3>
                     <p>Representa al ángel guardián de la ciudad, una figura que simboliza protección, esperanza y la idea de que la ciudad está “custodiada desde lo alto”. Rodeada de jardines y zonas de paseo, se ha convertido en un punto de encuentro para locales y visitantes.</p>
                 </article>
             </div>
@@ -93,16 +94,22 @@
                     allowfullscreen="true" 
                     webkitallowfullscreen="true" 
                     mozallowfullscreen="true" 
-                    src="https://truevirtualtours.com/panorama/45724/360view">
+                    src="https://truevirtualtours.com/panorama/45724/360view"
+                    alt="Visión 360 grados de la estatua del ángel">
                 </iframe>
+                <p class="sr-only">Este tour virtual permite explorar visualmente la plaza central de Stávropol (donde está la estatua del ángel) y sus monumentos circundantes.</p>
             </div>
 
             <div id="comparador">
                 <h2>Stávropol: Antes y Ahora</h2>
+                <p class="sr-only">
+                    Comparación visual de la Puerta de Tiflis. La imagen antigua muestra la estructura original de piedra a principios del siglo XX, 
+                    mientras que la imagen actual muestra la reconstrucción moderna con su entorno ajardinado actual.
+                </p>
                 <div class="modern-ba-container">
-                    <img src="assets/images/vorota.png" class="img-actual" alt="Ahora">
+                    <img src="assets/images/vorota.png" class="img-actual" alt="Puerta Tilfis ahora">
                     <div class="img-reveal-wrapper">
-                        <img src="assets/images/vorota-starie.jpg" class="img-antigua" alt="Antes">
+                        <img src="assets/images/vorota-starie.jpg" class="img-antigua" alt="Puerta Tilfis siglo XX">
                     </div>
                     <div class="divisoria-moderna">
                         <div class="control-punto"></div>
@@ -116,14 +123,14 @@
             <p>Consulta todos los eventos en la aplicación oficial <strong>MyStavropol</strong>.</p>
 
             <div class="evento-app">
-                <img src="https://play-lh.googleusercontent.com/tqQX1QbJzYUTyabxZE69J88fnCMhE4uJC_G0S4Bbqlhsu_0HRumdHkXL0q1ND1a9_EE=w480-h960-rw" class="logo-eventos" alt="Logotipo app">
+                <img src="https://play-lh.googleusercontent.com/tqQX1QbJzYUTyabxZE69J88fnCMhE4uJC_G0S4Bbqlhsu_0HRumdHkXL0q1ND1a9_EE=w480-h960-rw" class="logo-eventos" alt="Logotipo app de eventos en Stavropol">
                 <a class="btn-descargar" href="https://play.google.com/store/apps/details?id=com.secreate.myStavropol" target="_blank">Descargar aplicación</a>
             </div>
 
             <div class="cards-stack">
-                <img src="https://play-lh.googleusercontent.com/bai0SCPmygGIKR1DvS-tLxd2QON6J3BvKvdDdGRrnnSPqbxrxbvToupzNxT8fbzYAjk=w1052-h592-rw" alt="Captura 1" class="card card-1">
-                <img src="https://play-lh.googleusercontent.com/gzJMt0R_tbwMOtaNPmBEtDWNeyWK1GAJrMqYjdNTzF2Oaje6jPqHDbQfFqrItCqoni4=w1052-h592-rw" alt="Captura 2" class="card card-2">
-                <img src="https://play-lh.googleusercontent.com/vEhMC-0aqKe4ETkxQzHcLeKuEIVykGe9YTFecTiahXx0LvpGK9H9ocDPlw4dmqrkHoI=w1052-h592-rw" alt="Captura 3" class="card card-3">
+                <img src="https://play-lh.googleusercontent.com/bai0SCPmygGIKR1DvS-tLxd2QON6J3BvKvdDdGRrnnSPqbxrxbvToupzNxT8fbzYAjk=w1052-h592-rw" alt="Pantalla de carga de la aplicación" class="card card-1">
+                <img src="https://play-lh.googleusercontent.com/gzJMt0R_tbwMOtaNPmBEtDWNeyWK1GAJrMqYjdNTzF2Oaje6jPqHDbQfFqrItCqoni4=w1052-h592-rw" alt="Pantalla principal de la aplicación con filtros de restaurantes, teatros, muesos y cines" class="card card-2">
+                <img src="https://play-lh.googleusercontent.com/vEhMC-0aqKe4ETkxQzHcLeKuEIVykGe9YTFecTiahXx0LvpGK9H9ocDPlw4dmqrkHoI=w1052-h592-rw" alt="Descripción de la aplicación: la primera aplicación donde se recogen todos los eventos disponibles de Stavropol" class="card card-3">
             </div>
         </section>
 
@@ -137,10 +144,14 @@
                 Ella te recibirá con los brazos abiertos… <strong>si traes un buen jamón ibérico y vino español</strong>.</p>
                 
                 <div class="foto-wrap">
-                    <img src="assets/images/babushka.png" alt="Foto de mi abuela en Stávropol" class="foto-familia">
-                    <img src="assets/images/salon.png" alt="Foto del salón de Stávropol" class="foto-familia">
-                    <img src="assets/images/habitacion.png" alt="Foto de una habitación en Stávropol" class="foto-familia">
-                    <img src="assets/images/cocina.png" alt="Foto de la cocina en Stávropol" class="foto-familia">
+                    <img src="assets/images/babushka.png" alt="Foto de mi abuela en su casa de Stávropol" class="foto-familia">
+                    <p class="sr-only">Foto de mi abuela en su casa de Stávropol.</p>
+                    <img src="assets/images/salon.png" alt="Foto del salón de mi abuela en Stávropol" class="foto-familia">
+                    <p class="sr-only">Foto del salón de mi abuela en Stávropol.</p>
+                    <img src="assets/images/habitacion.png" alt="Foto de la habitación de mi abuela en Stávropol" class="foto-familia">
+                    <p class="sr-only">Foto de la habitación de mi abuela en Stávropol.</p>
+                    <img src="assets/images/cocina.png" alt="Foto de la cocina de mi abuela en Stávropol" class="foto-familia">
+                    <p class="sr-only">Foto de la cocina de mi abuela en Stávropol.</p>
                 </div>
             </article>
         </section>
@@ -148,28 +159,28 @@
         <section id="transporte-moderno">
             <h2>Cómo moverse por Stávropol</h2>
             <div class="transporte-container">
-                <div class="panel active" style="background-image: url('assets/images/tank.png')">
+                <div class="panel active" style="background-image: url('assets/images/tank.png')" aria-label="Taxis en forma de tanque.">
                     <div class="panel-content">
                         <h3>Taxi</h3>
                         <p>Rápidos y... blindados. Si ves uno con forma de tanque, no preguntes, solo sube.</p>
                     </div>
                 </div>
 
-                <div class="panel" style="background-image: url('assets/images/marshrutka.png')">
+                <div class="panel" style="background-image: url('assets/images/marshrutka.png')" aria-label="Furgonetas amarillas temerarias.">
                     <div class="panel-content">
                         <h3>Fragoneta</h3>
                         <p>La red de Marshrutkas conecta todos los puntos importantes de la ciudad.</p>
                     </div>
                 </div>
 
-                <div class="panel" style="background-image: url('assets/images/2gis.png')">
+                <div class="panel" style="background-image: url('assets/images/2gis.png')" aria-label="Google Maps Ruso excelente.">
                     <div class="panel-content">
                         <h3>Google Maps Ruso (2GIS)</h3>
                         <p>Imprescindible para conocer todos los puntos relevantes de la ciudad.</p>
                     </div>
                 </div>
 
-                <div class="panel" style="background-image: url('assets/images/tranvia.png')">
+                <div class="panel" style="background-image: url('assets/images/tranvia.png')" aria-label="Tranvías antiguos.">
                     <div class="panel-content">
                         <h3>Tranvía</h3>
                         <p>Perfecto para recorrer el centro histórico con calma.</p>
@@ -207,28 +218,28 @@
                         <label class="postal-card">
                             <input type="radio" name="imagen" value="park">
                             <div class="card-content">
-                                <img src="https://www.shutterstock.com/image-photo/12212019-divnoe-stavropol-territory-russia-260nw-1603328593.jpg" alt="Parque Victoria">
+                                <img src="https://www.shutterstock.com/image-photo/12212019-divnoe-stavropol-territory-russia-260nw-1603328593.jpg" alt="Sello soviético de un helicóptero">
                                 <span class="card-label">Parque Victoria</span>
                             </div>
                         </label>
                         <label class="postal-card">
                             <input type="radio" name="imagen" value="soldat">
                             <div class="card-content">
-                                <img src="https://mirfilately.ru/components/com_jshopping/files/img_products/4798_1.jpg" alt="Aviación">
+                                <img src="https://mirfilately.ru/components/com_jshopping/files/img_products/4798_1.jpg" alt="Sello soviético de la compañía aérea Aeroflot">
                                 <span class="card-label">Aviación</span>
                             </div>
                         </label>
                         <label class="postal-card">
                             <input type="radio" name="imagen" value="pond">
                             <div class="card-content">
-                                <img src="https://thumbs.dreamstime.com/b/divnoe-stavropol-territorio-ruso-sello-postal-ussr-feliz-a%C3%B1o-nuevo-la-torre-del-kremlin-spasskaya-y-el-palacio-de-los-congresos-163064262.jpg" alt="Arquitectura">
+                                <img src="https://thumbs.dreamstime.com/b/divnoe-stavropol-territorio-ruso-sello-postal-ussr-feliz-a%C3%B1o-nuevo-la-torre-del-kremlin-spasskaya-y-el-palacio-de-los-congresos-163064262.jpg" alt="Sello soviético de la arquitectura rusa">
                                 <span class="card-label">Arquitectura</span>
                             </div>
                         </label>
                         <label class="postal-card">
                             <input type="radio" name="imagen" value="kazninka">
                             <div class="card-content">
-                                <img src="https://avatars.mds.yandex.net/get-mpic/16497166/2a0000019cca94e8a441e89d6dcf31bf82f3/orig" alt="Ciencia">
+                                <img src="https://avatars.mds.yandex.net/get-mpic/16497166/2a0000019cca94e8a441e89d6dcf31bf82f3/orig" alt="Sello soviético del astronauta Gagarin">
                                 <span class="card-label">Ciencia</span>
                             </div>
                         </label>
