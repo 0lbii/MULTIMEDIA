@@ -551,7 +551,7 @@ footer {
 .btn-reset-all {
     background: transparent !important;
     border: 1px dashed #ccc !important;
-    color: #888 !important;
+    color: black !important;
     font-size: 0.9rem;
 }
 
