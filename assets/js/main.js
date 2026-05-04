@@ -258,6 +258,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Ocultar páginas
+    const links = document.querySelectorAll('nav ul li a');
+    const sections = document.querySelectorAll('main section'); // Ahora todo está en main section
+
+    function navigateTo(id) {
+        const targetId = id.replace('#', '') || 'inicio'; // Si está vacío, por defecto inicio
+        
+        sections.forEach(sec => {
+            if (sec.id === targetId) {
+                sec.classList.remove('is-hidden');
+            } else {
+                sec.classList.add('is-hidden');
+            }
+        });
+        window.scrollTo(0, 0);
+    }
+
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                navigateTo(href);
+                history.pushState(null, null, href);
+            }
+        });
+    });
+
+    // Controlar el inicio y botones atrás/adelante del navegador
+    navigateTo(window.location.hash || '#inicio');
+    
+    window.addEventListener('popstate', () => {
+        navigateTo(window.location.hash || '#inicio');
+    });
+
 });
 
 document.getElementById('form-postal').addEventListener('submit', function(event) {

@@ -27,6 +27,10 @@ body {
     outline-offset: 5px;
 }
 
+.is-hidden {
+    display: none !important;
+}
+
 /* -- ELEMENTOS DE LECTURA DE PÁGINA -- */
 .sr-only, .descripcion-accesible {
     position: absolute;
@@ -127,6 +131,15 @@ h2 {
     margin-bottom: 25px;
     border-bottom: 3px solid var(--secondary-color);
     padding-bottom: 10px;
+}
+
+/* FAQs */
+.faq {
+    margin-top: 2rem;
+}
+
+.faq details {
+    margin-bottom: 1rem;
 }
 
 /* -- GRID DE LUGARES -- */
@@ -271,11 +284,6 @@ h2 {
     padding: 40px;
     border-radius: 24px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-}
-
-.postal-header {
-    text-align: center;
-    margin-bottom: 40px;
 }
 
 .form-row {
@@ -462,7 +470,7 @@ footer {
 
 /* -- ACCESIBILIDAD -- */
 #accesibilidad {
-    margin-top: 4rem;
+    margin-top: 1rem;
     padding: 2.5rem;
     background: #fdfdfd;
     border-radius: 24px;
@@ -661,7 +669,7 @@ html {
 }
 
 #eventos {
-    margin-top: 40px;
+    margin-top: 1rem;
 }
 
 .evento-app {
