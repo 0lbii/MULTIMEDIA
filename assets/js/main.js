@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mejora de accesibilidad para los radio buttons de imágenes
+    // Mejora para los radio buttons de imágenes
     const labels = document.querySelectorAll('.postal-options label');
     labels.forEach(label => {
         const radio = label.querySelector('input[type="radio"]');
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ACCESIBILIDAD
     const btnTTS = document.getElementById("btn-tts");
     const btnTTSStop = document.getElementById("btn-tts-stop");
 
@@ -139,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         aplicarCursor();
     });
 
-    // Cartas rotativas de eventos
+    // IMAGENES EVENTOS
     const stack = document.querySelector('.cards-stack');
     const allCards = document.querySelectorAll('.card');
 
@@ -170,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Busca los elementos
+    // IMAGEN ANTES VS AHORA
     const container = document.querySelector('.modern-ba-container');
     const reveal = document.querySelector('.img-reveal-wrapper');
     const divider = document.querySelector('.divisoria-moderna');
@@ -258,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Ocultar páginas
+    // DIVISION DE PAGINAS (OCULTAR SECCIONES)
     const links = document.querySelectorAll('nav ul li a');
     const sections = document.querySelectorAll('main section'); // Ahora todo está en main section
 
@@ -295,6 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// FORMULARIO
 document.getElementById('form-postal').addEventListener('submit', function(event) {
     const nombre = document.getElementById('nombre');
     const email = document.getElementById('email');
