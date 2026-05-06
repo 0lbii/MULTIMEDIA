@@ -239,6 +239,13 @@ h2 {
     display: none;
 }
 
+.transcripcion-moderna summary:focus-visible {
+    outline: 3px solid #e59501 !important; /* Borde grueso y claro */
+    outline-offset: -3px;                  /* Lo mete un poco hacia dentro para que no se corte */
+    background-color: rgba(0, 123, 255, 0.1); /* Fondo suave para resaltar */
+    border-radius: 8px;
+}
+
 .transcripcion-moderna .icon { /* Icono y texto */
     margin-right: 10px;
     font-size: 1.1rem;

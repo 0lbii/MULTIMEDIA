@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const labels = document.querySelectorAll('.postal-options label');
     labels.forEach(label => {
         const radio = label.querySelector('input[type="radio"]');
-        
+
         // Al hacer click en cualquier parte del label (incluida la imagen)
         label.addEventListener('click', () => {
             radio.checked = true;
@@ -145,27 +145,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const allCards = document.querySelectorAll('.card');
 
     if (stack && allCards.length > 0) {
+
+        // Función que contiene la lógica de rotación
+        function rotarTarjetas(elementoPulsado) {
+            const c1 = document.querySelector('.card-1');
+            const c2 = document.querySelector('.card-2');
+            const c3 = document.querySelector('.card-3');
+
+            // Si interactuamos con la de la izquierda (card-1)
+            if (elementoPulsado.classList.contains('card-1')) {
+                c1.className = 'card card-2';
+                c2.className = 'card card-3';
+                c3.className = 'card card-1';
+            }
+            // Si interactuamos con la de la derecha (card-3)
+            else if (elementoPulsado.classList.contains('card-3')) {
+                c1.className = 'card card-3';
+                c2.className = 'card card-1';
+                c3.className = 'card card-2';
+            }
+        }
+
         allCards.forEach((selectedCard) => {
-            selectedCard.addEventListener('click', function() {
-                // Si hacemos clic en la de la izquierda (card-1)
-                if (this.classList.contains('card-1')) {
-                    const c1 = document.querySelector('.card-1');
-                    const c2 = document.querySelector('.card-2');
-                    const c3 = document.querySelector('.card-3');
-                    
-                    c1.className = 'card card-2';
-                    c2.className = 'card card-3';
-                    c3.className = 'card card-1';
-                } 
-                // Si hacemos clic en la de la derecha (card-3)
-                else if (this.classList.contains('card-3')) {
-                    const c1 = document.querySelector('.card-1');
-                    const c2 = document.querySelector('.card-2');
-                    const c3 = document.querySelector('.card-3');
-                    
-                    c1.className = 'card card-3';
-                    c2.className = 'card card-1';
-                    c3.className = 'card card-2';
+            // 1. Ratón
+            selectedCard.addEventListener('click', function () {
+                rotarTarjetas(this);
+            });
+
+            // 2. Enter o Espacio
+            selectedCard.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault(); // Evita el scroll con la barra espaciadora
+                    rotarTarjetas(this);
                 }
             });
         });
@@ -177,86 +188,115 @@ document.addEventListener('DOMContentLoaded', () => {
     const divider = document.querySelector('.divisoria-moderna');
 
     if (container && reveal) {
-        const processMove = (e) => {
-            // Obtenemos coordenadas dependiendo de si es ratón o dedo
-            const rect = container.getBoundingClientRect();
-            const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-            
-            if (clientX === undefined) return;
-
-            // Cálculo de posición relativa
-            let x = clientX - rect.left;
-            let porcentaje = (x / rect.width) * 100;
-
-            // Seguridad
+        // 1. Creamos una función centralizada para actualizar la vista
+        // Así la usamos tanto para ratón como para teclado
+        const updatePosition = (porcentaje) => {
             if (porcentaje < 0) porcentaje = 0;
             if (porcentaje > 100) porcentaje = 100;
 
-            // Aplicamos al estilo directamente
             reveal.style.width = porcentaje + '%';
             if (divider) divider.style.left = porcentaje + '%';
+
+            // Guardamos el porcentaje actual en el dataset para que el teclado sepa dónde está
+            container.dataset.porcentaje = porcentaje;
         };
 
-        let isDragging = false;
+        const processMove = (e) => {
+            const rect = container.getBoundingClientRect();
+            const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+            if (clientX === undefined) return;
 
-        // Empezar a mover
-        container.addEventListener('mousedown', () => isDragging = true);
-        window.addEventListener('mouseup', () => isDragging = false);
-        
-        // Mover al arrastrar
-        container.addEventListener('mousemove', (e) => {
-            if (isDragging) processMove(e);
+            let x = clientX - rect.left;
+            let porcentaje = (x / rect.width) * 100;
+            updatePosition(porcentaje);
+        };
+
+        // Teclado
+        container.addEventListener('keydown', (e) => {
+            let currentP = parseFloat(container.dataset.porcentaje) || 50; // Obtenemos el porcentaje actual o empezamos en 50
+            let step = 5; // Cuánto se mueve en cada pulsación
+
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                updatePosition(currentP - step);
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                updatePosition(currentP + step);
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                updatePosition(0);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                updatePosition(100);
+            }
         });
 
-        // Mover con un solo Click
+        // Ratón
+        let isDragging = false;
+        container.addEventListener('mousedown', () => isDragging = true);
+        window.addEventListener('mouseup', () => isDragging = false);
+        container.addEventListener('mousemove', (e) => { if (isDragging) processMove(e); });
         container.addEventListener('click', processMove);
 
-        // Soporte móvil (Touch)
+        // Soporte móvil
         container.addEventListener('touchstart', () => isDragging = true);
         container.addEventListener('touchend', () => isDragging = false);
         container.addEventListener('touchmove', (e) => {
-            if (isDragging) {
-                processMove(e);
-                e.preventDefault(); // Evita que la página se mueva al arrastrar
-            }
-        }, { passive: false });
-
-        divider.addEventListener('mousedown', () => isDragging = true);
-        divider.addEventListener('touchstart', () => isDragging = true);
-
-        // Listener global para asegurar que el movimiento siempre se detecta
-        window.addEventListener('mousemove', (e) => {
-            if (isDragging) processMove(e);
-        });
-
-        window.addEventListener('touchmove', (e) => {
             if (isDragging) {
                 processMove(e);
                 e.preventDefault();
             }
         }, { passive: false });
 
+        if (divider) {
+            divider.addEventListener('mousedown', () => isDragging = true);
+            divider.addEventListener('touchstart', () => isDragging = true);
+        }
+
+        window.addEventListener('mousemove', (e) => { if (isDragging) processMove(e); });
+        window.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                processMove(e);
+                e.preventDefault();
+            }
+        }, { passive: false });
     }
 
     // TRANSPORTE
     const contenedorTransporte = document.querySelector('.transporte-container');
-    
+
     if (contenedorTransporte) {
-        // Usamos delegación de eventos en el contenedor padre
-        contenedorTransporte.addEventListener('click', function(e) {
-            // Buscamos el panel más cercano a donde se ha hecho click
+        // 1. Mantenemos tu función de CLICK (ratón/táctil)
+        contenedorTransporte.addEventListener('click', function (e) {
             const targetPanel = e.target.closest('.panel');
-            
-            // Si hemos clicado en un panel y ese panel no es ya el activo
-            if (targetPanel && !targetPanel.classList.contains('active')) {
-                // Quitamos active de todos los paneles DENTRO de este contenedor
-                const panelsInContainer = contenedorTransporte.querySelectorAll('.panel');
-                panelsInContainer.forEach(p => p.classList.remove('active'));
-                
-                // Añadimos active al clicado
-                targetPanel.classList.add('active');
+            activarPanel(targetPanel);
+        });
+
+        // 2. AÑADIMOS FUNCIÓN DE TECLADO (Enter o Espacio)
+        contenedorTransporte.addEventListener('keydown', function (e) {
+            const targetPanel = e.target.closest('.panel');
+
+            // Si el usuario pulsa Enter (o Espacio) sobre un panel con el foco
+            if (targetPanel && (e.key === 'Enter' || e.key === ' ')) {
+                e.preventDefault(); // Evita que la página haga scroll al pulsar espacio
+                activarPanel(targetPanel);
             }
         });
+
+        // Función auxiliar para no repetir código
+        function activarPanel(panel) {
+            if (panel && !panel.classList.contains('active')) {
+                const panelsInContainer = contenedorTransporte.querySelectorAll('.panel');
+
+                panelsInContainer.forEach(p => {
+                    p.classList.remove('active');
+                    p.setAttribute('aria-selected', 'false'); // Accesibilidad extra
+                });
+
+                panel.classList.add('active');
+                panel.setAttribute('aria-selected', 'true'); // Accesibilidad extra
+            }
+        }
     }
 
     // DIVISION DE PAGINAS (OCULTAR SECCIONES)
@@ -265,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function navigateTo(id) {
         const targetId = id.replace('#', '') || 'inicio'; // Si está vacío, por defecto inicio
-        
+
         sections.forEach(sec => {
             if (sec.id === targetId) {
                 sec.classList.remove('is-hidden');
@@ -289,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Controlar el inicio y botones atrás/adelante del navegador
     navigateTo(window.location.hash || '#inicio');
-    
+
     window.addEventListener('popstate', () => {
         navigateTo(window.location.hash || '#inicio');
     });
@@ -297,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // FORMULARIO
-document.getElementById('form-postal').addEventListener('submit', function(event) {
+document.getElementById('form-postal').addEventListener('submit', function (event) {
     const nombre = document.getElementById('nombre');
     const email = document.getElementById('email');
     const mensajeInput = document.getElementById('mensaje');
@@ -328,7 +368,7 @@ document.getElementById('form-postal').addEventListener('submit', function(event
     }
 
     // 4. Si todo está bien, hacer un envío simulado
-    event.preventDefault(); 
+    event.preventDefault();
     btnSubmit.disabled = true;
     btnSubmit.innerHTML = "<span>Enviando...</span>";
 
