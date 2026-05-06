@@ -341,17 +341,18 @@ document.getElementById('form-postal').addEventListener('submit', function (even
     const nombre = document.getElementById('nombre');
     const email = document.getElementById('email');
     const mensajeInput = document.getElementById('mensaje');
-    const errorSelloDiv = document.getElementById('error-sello-claro');
     const mensajeExito = document.getElementById('mensaje-exito');
     const btnSubmit = this.querySelector('.btn-submit');
 
-    // 1. Validar Nombre y Email
+    // 1. Validar Nombre
     if (!nombre.value.trim()) {
         nombre.setCustomValidity("Escribe tu nombre");
         nombre.reportValidity();
         event.preventDefault();
         return;
     }
+
+    // 2. Validar Email
     if (!email.validity.valid) {
         email.setCustomValidity("Escribe un email válido");
         email.reportValidity();
@@ -367,16 +368,33 @@ document.getElementById('form-postal').addEventListener('submit', function (even
         return;
     }
 
-    // 4. Si todo está bien, hacer un envío simulado
+    // Prevención de errores
     event.preventDefault();
-    btnSubmit.disabled = true;
-    btnSubmit.innerHTML = "<span>Enviando...</span>";
 
-    setTimeout(() => {
-        mensajeExito.style.display = 'block';
-        btnSubmit.disabled = false;
-        btnSubmit.innerHTML = "<span>Enviar Postal</span>";
-        this.reset(); // Limpia todo
-        setTimeout(() => { mensajeExito.style.display = 'none'; }, 5000);
-    }, 1500);
+    const mensajeConfirmacion = "¿Estás seguro de que quieres enviar esta postal? Revisa que tu mensaje sea correcto.";
+
+    if (confirm(mensajeConfirmacion)) {
+        // 4. Si el usuario acepta, procedemos con el envío simulado
+        btnSubmit.disabled = true;
+        btnSubmit.innerHTML = "<span>Enviando...</span>";
+
+        setTimeout(() => {
+            mensajeExito.style.display = 'block';
+            btnSubmit.disabled = false;
+            btnSubmit.innerHTML = "<span>Enviar Postal</span>";
+            this.reset(); // Limpia el formulario
+
+            // Limpiar las validaciones personalizadas para el siguiente envío
+            nombre.setCustomValidity("");
+            email.setCustomValidity("");
+            mensajeInput.setCustomValidity("");
+
+            setTimeout(() => {
+                mensajeExito.style.display = 'none';
+            }, 5000);
+        }, 1500);
+    } else {
+        // Si el usuario cancela, no hacemos nada y el foco vuelve al formulario
+        console.log("Envío cancelado por el usuario");
+    }
 });
