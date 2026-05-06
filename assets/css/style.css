@@ -565,6 +565,10 @@ footer {
     padding-top: 20px;
 }
 
+.accesibilidad-footer a {
+    margin-right: 3rem;
+}
+
 .btn-reset-all {
     background: transparent !important;
     border: 1px dashed #ccc !important;
