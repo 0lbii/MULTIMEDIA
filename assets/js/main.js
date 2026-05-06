@@ -398,3 +398,25 @@ document.getElementById('form-postal').addEventListener('submit', function (even
         console.log("Envío cancelado por el usuario");
     }
 });
+
+// Selector de sellos del formulario por teclado
+document.querySelectorAll('.card-content').forEach(card => {
+    card.addEventListener('keydown', function(event) {
+        // Verificamos si la tecla presionada es Enter (o Espacio)
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault(); // Evita scroll accidental con Espacio
+            
+            // Buscamos el input radio que está dentro del mismo contenedor label
+            const radio = this.closest('.postal-card').querySelector('input[type="radio"]');
+            
+            if (radio) {
+                radio.checked = true;
+                // Opcional: disparar un evento 'change' por si tienes otros scripts escuchando
+                radio.dispatchEvent(new Event('change'));
+                
+                // Feedback visual: podrías añadir una clase de "seleccionado" si tu CSS no lo hace vía :checked
+                console.log("Postal seleccionada mediante teclado: " + radio.value);
+            }
+        }
+    });
+});
